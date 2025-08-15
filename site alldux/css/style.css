@@ -1,0 +1,470 @@
+/* Reset básico */
+
+# Empty CSS file for your own CSS
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.head {
+    width: 100%;
+    background-color: aqua;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    background-color: #fdf3e1;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.box {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    color: #4a4a4a;
+}
+
+.box2 {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    background-color: #f9e9c3;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #4a4a4a;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+}
+
+.whatsap {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow:
+        3px 3px #888;
+    z-index: 1000;
+}
+
+.whatsap a i {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/**/
+/**/
+/**/
+
+/* Estilos do Footer */
+footer {
+    background-color: #333;
+    padding: 20px 0;
+    color: #fff;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content p {
+    margin: 5px 0;
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #fff;
+    /* Cor padrão: branco */
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.social-links a i {
+    margin-right: 8px;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+    /* Transição suave para o ícone */
+}
+
+/* Efeito hover para cada rede social */
+
+/* Facebook */
+.social-links a:hover i.fa-facebook-f,
+.social-links a:hover i.fa-facebook-f+span {
+    color: #1877f2;
+    /* Cor azul do logo do Facebook */
+}
+
+/* Twitter */
+.social-links a:hover i.fa-twitter,
+.social-links a:hover i.fa-twitter+span {
+    color: #1da1f2;
+    /* Cor azul do logo do Twitter */
+}
+
+/* Instagram */
+  
+
+/* LinkedIn */
+.social-links a:hover i.fa-linkedin-in,
+.social-links a:hover i.fa-linkedin-in+span {
+    color: #0a66c2;
+    /* Cor azul do logo do LinkedIn */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.audio-container {
+    width: 100%;
+    max-width: 350px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #fdf3e1;
+    border-radius: 12px;
+    display: flex;
+}
+
+audio {
+    width: 50%;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #4a4a4a;
+    justify-content: center;
+    align-items: center;
+}
+
+.audio-container:hover {
+    background-color: #f9e9c3;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+audio::-webkit-media-controls-panel {
+    background-color: transparent;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-timeline,
+audio::-webkit-media-controls-volume-slider {
+    filter: invert(60%) sepia(20%) saturate(500%) hue-rotate(-20deg) brightness(85%);
+}
+
+
+audio {
+    filter: brightness(0.9) contrast(1.1);
+}
+
+.audio-container p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #7a7a7a;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/*header do site pare de cima*/
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+}
+
+.header .logo img.icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+
+
+
+nav.menu-lateral {
+    width: 70px;
+    height: 100%;
+    background-color: #302d2d;
+    padding: 40px 0 40px 1%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: .3s;
+}
+
+nav.menu-lateral.expandir {
+    width: 300px;
+}
+
+.btn-expandir {
+    -webkit-background-clip: text;
+    /* Faz o fundo aparecer apenas no texto */
+    -webkit-text-fill-color: transparent;
+    /* Torna a cor do texto transparente */
+    background-color:rgb(255, 44, 44);
+    width: 100%;
+    padding-left: 10px;
+}
+
+.btn-expandir>i {
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+ul {
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.item-menu {
+    transition: .2s;
+}
+
+ul li.ativo {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: #3dcd00;
+}
+
+ul li.item-menu:hover {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background: #03a413;
+}
+
+ul li.item-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 4%;
+    display: flex;
+    margin-bottom: 2%;
+    line-height: 40px;
+    border-top-left-radius: 20%;
+    border-bottom-left-radius: 20%;
+}
+
+ul li.item-menu a .txt-link {
+    margin-left: 4%;
+    transition: .5s;
+    opacity: 0;
+}
+
+nav.menu-lateral.expandir .txt-link {
+    margin-left: 40px;
+    opacity: 1;
+
+}
+
+ul li.item-menu a .icon>i {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+/* Container geral do carrossel */
+.carousel-container {
+    width: 40%;
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden;
+    /* Garante que apenas o slide visível aparece */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* O container dos slides */
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    /* Transição suave entre slides */
+}
+
+/* Cada slide do carrossel */
+.carousel-item {
+    min-width: 100%;
+    /* Cada item ocupa 100% da largura do container */
+    height: 300px;
+}
+
+/* Mantém as imagens sempre com a mesma largura e altura, ajustando o tamanho delas */
+.carousel-item img {
+    width: 100%;
+    /* A imagem ocupa 100% da largura do slide */
+    height: 100%;
+    /* A imagem ocupa 100% da altura do slide */
+    object-fit: fill;
+    /* Cobre toda a área do container sem distorcer a proporção */
+    border-radius: 10px;
+    /* Bordas arredondadas para um visual mais moderno */
+}
+
+
+
+/* Botões de controle (esquerda/direita) */
+.controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.control-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.control-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+.container2 {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    background: linear-gradient(to right, #7df25f, #21942a);
+    -webkit-background-clip: text;
+    /* Faz o fundo aparecer apenas no texto */
+    -webkit-text-fill-color: transparent;
+    /* Torna a cor do texto transparente */
+    font-size: 2.5em;
+    /* Ajuste o tamanho da fonte conforme necessário */
+
+    margin: 2px;
+}
+h2{
+    margin-left: 20px;
+}
+p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.highlight {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+.link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.link a {
+    text-decoration: none;
+    color: #0275d8;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.link a:hover {
+    color: #d9534f;
+}
