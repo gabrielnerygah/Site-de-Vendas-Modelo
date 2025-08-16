@@ -1,0 +1,589 @@
+/* ==========================================================================
+   1. RESET BÁSICO E ESTILOS GERAIS
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    height: 100vh;
+    padding: 10px;
+}
+
+/* Wrapper para o conteúdo principal, ajustando a margem do menu lateral */
+.tudo {
+    width: 95%;
+    margin-left: 70px;
+}
+
+/* ==========================================================================
+   2. LAYOUT PRINCIPAL (HEADER, MENU, FOOTER)
+   ========================================================================== */
+
+/* -------------------- Header -------------------- */
+.header {
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+}
+
+.header .logo img.icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+/* -------------------- Menu Lateral -------------------- */
+nav.menu-lateral {
+    z-index: 1000;
+    width: 70px;
+    height: 100%;
+    background-color: #302d2d;
+    padding: 40px 0 40px 1%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+nav.menu-lateral.expandir {
+    width: 300px;
+}
+
+.btn-expandir {
+    width: 100%;
+    padding-left: 10px;
+}
+
+.btn-expandir > i {
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+ul {
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.item-menu {
+    transition: 0.2s;
+}
+
+ul li.ativo {
+    background-color: #3dcd00;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+ul li.item-menu:hover {
+    background: #03a413;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+ul li.item-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 4%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2%;
+    line-height: 40px;
+}
+
+ul li.item-menu a .icon > i {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+ul li.item-menu a .txt-link {
+    margin-left: 4%;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+nav.menu-lateral.expandir .txt-link {
+    margin-left: 40px;
+    opacity: 1;
+}
+
+ul li.item-menu a button {
+    background-color: transparent;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    display: flex;
+    border: none;
+    line-height: 40px;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* -------------------- Footer -------------------- */
+footer {
+    background-color: #333;
+    padding: 20px 0;
+    color: #fff;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ==========================================================================
+   3. COMPONENTES (BOTÕES, CARROSSEL, ETC.)
+   ========================================================================== */
+
+/* -------------------- Botões de Autenticação e Login -------------------- */
+.auth-button a, .botao-login {
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    margin-right: 2px;
+}
+
+.auth-button a {
+    background-color: #11c90b;
+    border-radius: 10px;
+}
+
+.auth-button p a {
+    background-color: #e91414;
+}
+
+.botao-login {
+    max-width: 60px;
+    background-color: #11c90b;
+}
+
+/* -------------------- Nome do Usuário no Header -------------------- */
+.nome {
+    text-decoration: none;
+    width: auto;
+    padding: 5px 15px;
+    font-size: 24px;
+    color: #ffffff;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    border-radius: 50px;
+}
+
+.nome a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.nome:hover {
+    background-color: #e0e0e03a;
+    cursor: pointer;
+}
+
+/* -------------------- Container de Conteúdo Geral -------------------- */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fdf3e1;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.box, .box2 {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    color: #4a4a4a;
+    font-family: 'Roboto', sans-serif;
+}
+
+.box2 {
+    background-color: #f9e9c3;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* -------------------- Player de Áudio -------------------- */
+audio {
+    width: 100%;
+}
+
+/* -------------------- Carrossel -------------------- */
+.carousel-container {
+    width: 25%;
+    max-width: 800px;
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    height: auto;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.control-button {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 10%;
+    height: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.control-button:hover {
+    background-color: rgba(248, 247, 247, 0.8);
+    color: #333;
+}
+
+/* -------------------- Botão Flutuante WhatsApp -------------------- */
+.whatsap {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    border-radius: 50%;
+    box-shadow: 3px 3px 8px #888;
+    z-index: 100;
+}
+
+.whatsap a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    color: #fff;
+}
+
+/* -------------------- Ícones de Redes Sociais -------------------- */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 3rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover i.fa-facebook-f { color: #1877f2; }
+.social-links a:hover i.fa-twitter { color: #1da1f2; }
+.social-links a:hover i.fa-linkedin-in { color: #0a66c2; }
+.social-links a:hover i.fa-instagram {
+    background: linear-gradient(45deg, #f7241d, #e6683c, #0eb129, #0780e4, #2f00b1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   4. ESTILOS ESPECÍFICOS (PÁGINA DE PRODUTOS)
+   ========================================================================== */
+
+.container2 {
+    background-color: #f7f8fa;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container2 h3 {
+    color: #333;
+    font-size: 39px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Formulário de adição de produto */
+.container2 form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.container2 form input[type="text"],
+.container2 form input[type="number"],
+.container2 form textarea,
+.container2 form input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.container2 form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0066cc;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.container2 form button:hover {
+    background-color: #004c99;
+}
+
+/* Lista de produtos */
+.product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.product {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 20px;
+    text-align: center;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.product-info strong {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.product-info span {
+    font-size: 14px;
+    color: #777;
+}
+
+/* ==========================================================================
+   5. TIPOGRAFIA
+   ========================================================================== */
+
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    background: linear-gradient(to right, #7df25f, #21942a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    margin-left: 20px;
+}
+
+p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.highlight {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+.link a {
+    color: #0275d8;
+    transition: color 0.3s;
+}
+
+.link a:hover {
+    color: #d9534f;
+}
+
+/* ==========================================================================
+   6. RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+
+/* Telas grandes (laptops e desktops, >= 1200px) */
+@media (min-width: 1200px) {
+    .container {
+        width: 85%;
+        margin: 20px auto;
+        padding: 40px;
+    }
+    h1 { font-size: 7rem; }
+}
+
+/* Telas médias (tablets em paisagem, 992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        width: 90%;
+        margin: 15px auto;
+    }
+    h1 { font-size: 5rem; }
+}
+
+/* Telas pequenas (tablets em retrato, 768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .tudo {
+        margin-left: 70px;
+    }
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+    h1 { font-size: 4rem; }
+    .carousel-container { width: 60%; }
+}
+
+/* Telas extra pequenas (smartphones, < 768px) */
+@media (max-width: 767px) {
+    .tudo {
+        width: auto;
+        margin-left: 60px;
+    }
+    .header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    .container {
+        flex-direction: column;
+        width: auto;
+        padding: 10px;
+        margin: 0 10px;
+    }
+    .box, .box2 {
+        margin: 10px 0;
+    }
+    nav.menu-lateral {
+        width: 60px;
+    }
+    nav.menu-lateral.expandir {
+        width: 250px;
+    }
+    .carousel-container {
+        width: 90%;
+        margin: 20px auto;
+    }
+    .control-button {
+        font-size: 18px;
+        padding: 8px;
+    }
+    .social-links a i {
+        font-size: 2.5rem;
+    }
+    h1 { font-size: 2.2rem; }
+}
+
+/* Ajustes finos para smartphones muito pequenos (< 600px) */
+@media (max-width: 600px) {
+    .header {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    .container {
+        padding: 10px;
+    }
+    .box, .box2 {
+        font-size: 1rem;
+        padding: 10px;
+    }
+    .carousel-container {
+        width: 100%;
+        margin: 20px 0;
+    }
+    .whatsap {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .social-links a i {
+        font-size: 2rem;
+    }
+}

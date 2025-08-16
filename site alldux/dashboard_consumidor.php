@@ -165,13 +165,14 @@ if (!$result) {
 <script>
 // Função para redirecionar para o dashboard correto conforme tipo de usuário
 function redirecionaDashboard() {
-<?php if ($_SESSION['tipo_usuario'] == 'consumidor') { ?>
+if ("<?php echo $_SESSION['tipo_usuario']; ?>" === "consumidor") {
     window.location.href = 'dashboard_consumidor.php';
-<?php } else if ($_SESSION['tipo_usuario'] == 'promotor') { ?>
+} else if ("<?php echo $_SESSION['tipo_usuario']; ?>" === "promotor") {
     window.location.href = 'dashboard_promotor.php';
-<?php } else { ?>
-    alert("Tipo de usuário inválido.");
-<?php } ?>
+} else {
+    alert("Você não está logado ou o tipo de usuário é inválido.");
+    window.location.href = 'login.php';
+}
 }
 
 // Seleciona os itens do menu e adiciona classe 'ativo' ao clicar

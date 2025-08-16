@@ -3,10 +3,7 @@
 session_start();
 
 // Conectar ao banco de dados
-$conn = new mysqli("127.0.0.1:3306", "u393630075_admin", "Gdml22052007$", "u393630075_database");
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
+include('conexao.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST['email']);
