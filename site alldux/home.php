@@ -11,17 +11,7 @@
         </div>
     </div>
 </div>
-<div class="carousel-container">
-    <div class="carousel">
-        <div class="carousel-item"><img src="img/VISITE.png" alt="Anúncio 1"></div>
-        <div class="carousel-item"><img src="img/kumon.jpg" alt="Anúncio 2"></div>
-        <div class="carousel-item"><img src="anuncio3.jpg" alt="Anúncio 3"></div>
-    </div>
-    <div class="controls">
-        <button id="prev" class="control-button">❮</button>
-        <button id="next" class="control-button">❯</button>
-    </div>
-</div>
+
 <div class="whatsap">
     <a href="https://wa.me/5585981252196?text=">
         <i class="fa fa-whatsapp"></i>

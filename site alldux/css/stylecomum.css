@@ -11,21 +11,21 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    height: 100vh;
+    min-height: 100vh;
     padding: 10px;
 }
 
-/* Wrapper para o conteúdo principal, ajustando a margem do menu lateral */
+/* Wrapper */
 .tudo {
-    width: 95%;
+    width: auto;
     margin-left: 70px;
+    transition: margin-left 0.3s;
 }
 
 /* ==========================================================================
    2. LAYOUT PRINCIPAL (HEADER, MENU, FOOTER)
    ========================================================================== */
 
-/* -------------------- Header -------------------- */
 .header {
     border-radius: 20px;
     display: flex;
@@ -58,7 +58,7 @@ nav.menu-lateral {
     top: 0;
     left: 0;
     overflow: hidden;
-    transition: 0.3s;
+    transition: width 0.3s;
 }
 
 nav.menu-lateral.expandir {
@@ -136,6 +136,7 @@ ul li.item-menu a button {
     line-height: 40px;
     padding: 0;
     cursor: pointer;
+    text-align: left;
 }
 
 /* -------------------- Footer -------------------- */
@@ -152,12 +153,69 @@ footer {
     flex-direction: column;
     align-items: center;
 }
+/* Redes sociais */
+.social-links {
+    width: 40%;
+    display: flex; /* Garante que os itens fiquem em linha */
+    justify-content: center; /* Centraliza os ícones */
+    gap: 5px; /* Espaçamento entre os ícones */
+    margin-top: 10px;
+    flex-wrap: nowrap; /* Impede que os ícones quebrem linha */
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    transition: font-size 0.3s ease;
+}
+
+.social-links a i {
+    font-size: 3rem;
+    transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .social-links {
+        gap: 5px;
+    }
+
+    .social-links a i {
+        font-size: 2.5rem; /* Reduz o tamanho dos ícones em telas menores */
+    }
+}
+
+/* Efeito hover para cada rede social */
+
+/* Facebook */
+.social-links a:hover i.fa-facebook-f {
+    color: #1877f2;
+}
+
+/* Twitter */
+.social-links a:hover i.fa-twitter {
+    color: #1da1f2;
+}
+
+/* Instagram */
+.social-links a:hover i.fa-instagram {
+    background: linear-gradient(45deg, #f7241d, #e6683c, #0eb129, #0780e4, #2f00b1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* LinkedIn */
+.social-links a:hover i.fa-linkedin-in {
+    color: #0a66c2;
+}
+
 
 /* ==========================================================================
-   3. COMPONENTES (BOTÕES, CARROSSEL, ETC.)
+   3. COMPONENTES
    ========================================================================== */
 
-/* -------------------- Botões de Autenticação e Login -------------------- */
 .auth-button a, .botao-login {
     color: white;
     padding: 10px;
@@ -183,7 +241,6 @@ footer {
     background-color: #11c90b;
 }
 
-/* -------------------- Nome do Usuário no Header -------------------- */
 .nome {
     text-decoration: none;
     width: auto;
@@ -205,7 +262,6 @@ footer {
     cursor: pointer;
 }
 
-/* -------------------- Container de Conteúdo Geral -------------------- */
 .container {
     display: flex;
     justify-content: space-between;
@@ -231,218 +287,138 @@ footer {
     text-align: center;
 }
 
-/* -------------------- Player de Áudio -------------------- */
-audio {
-    width: 100%;
-}
-
-/* -------------------- Carrossel -------------------- */
-.carousel-container {
-    width: 25%;
-    max-width: 800px;
-    margin: 50px auto;
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.carousel {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item {
-    min-width: 100%;
-    height: auto;
-}
-
-.carousel-item img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.controls {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-}
-
-.control-button {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    width: 10%;
-    height: 50px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.control-button:hover {
-    background-color: rgba(248, 247, 247, 0.8);
-    color: #333;
-}
-
-/* -------------------- Botão Flutuante WhatsApp -------------------- */
-.whatsap {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
-    right: 40px;
-    background-color: #25d366;
-    border-radius: 50%;
-    box-shadow: 3px 3px 8px #888;
-    z-index: 100;
-}
-
-.whatsap a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    font-size: 30px;
-    color: #fff;
-}
-
-/* -------------------- Ícones de Redes Sociais -------------------- */
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    list-style-type: none;
-    margin-top: 10px;
-}
-
-.social-links a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 3rem;
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover i.fa-facebook-f { color: #1877f2; }
-.social-links a:hover i.fa-twitter { color: #1da1f2; }
-.social-links a:hover i.fa-linkedin-in { color: #0a66c2; }
-.social-links a:hover i.fa-instagram {
-    background: linear-gradient(45deg, #f7241d, #e6683c, #0eb129, #0780e4, #2f00b1);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+audio { width: 100%; }
 
 /* ==========================================================================
-   4. ESTILOS ESPECÍFICOS (PÁGINA DE PRODUTOS)
+   4. ESTILOS DE PRODUTOS
    ========================================================================== */
 
 .container2 {
-    background-color: #f7f8fa;
-    color: #333;
+    width: 100%;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #ffffff;
+    color: #333;
+    text-align: center;
 }
 
 .container2 h3 {
+    font-size: 2em;
+    margin-bottom: 20px;
     color: #333;
-    font-size: 39px;
     font-weight: bold;
-    text-align: center;
-    margin-top: 10px;
     padding-bottom: 10px;
     border-bottom: 2px solid #ddd;
 }
 
-/* Formulário de adição de produto */
-.container2 form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-    width: 100%;
-}
-
-.container2 form input[type="text"],
-.container2 form input[type="number"],
-.container2 form textarea,
-.container2 form input[type="file"] {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 14px;
-}
-
-.container2 form button {
-    width: 100%;
-    padding: 12px;
-    background-color: #0066cc;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.container2 form button:hover {
-    background-color: #004c99;
-}
-
-/* Lista de produtos */
+/* Catálogo em Cards */
 .product-list {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     width: 100%;
 }
 
 .product {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: #606060;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-    padding: 20px;
-    text-align: center;
+    transition: transform 0.2s ease;
+    text-align: left;
 }
 
 .product:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
 }
 
 .product img {
     width: 100%;
-    max-height: 200px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
+}
+
+.product-info {
+    padding: 15px;
 }
 
 .product-info strong {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
     display: block;
 }
 
+.product-info p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
 .product-info span {
-    font-size: 14px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #009578;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.product-info small {
+    font-size: 0.8rem;
     color: #777;
+}
+
+/* Lista alternativa */
+.ul-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+
+.il-grid {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    padding: 15px;
+    transition: background 0.2s;
+}
+
+.il-grid:hover { background: #f9f9f9; }
+
+.il-grid a {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    text-decoration: none;
+    color: inherit;
+}
+
+.il-grid img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.descricao {
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.descricao strong {
+    font-size: 1.1rem;
+    color: #222;
 }
 
 /* ==========================================================================
@@ -458,132 +434,24 @@ h1 {
     -webkit-text-fill-color: transparent;
 }
 
-h2 {
-    margin-left: 20px;
-}
+h2 { margin-left: 20px; }
 
-p {
-    color: #555;
-    line-height: 1.6;
-}
+p { color: #555; line-height: 1.6; }
 
-.highlight {
-    color: #d9534f;
-    font-weight: bold;
-}
+.highlight { color: #d9534f; font-weight: bold; }
 
 .link a {
     color: #0275d8;
     transition: color 0.3s;
 }
 
-.link a:hover {
-    color: #d9534f;
-}
+.link a:hover { color: #d9534f; }
 
 /* ==========================================================================
-   6. RESPONSIVIDADE (MEDIA QUERIES)
+   6. RESPONSIVIDADE
    ========================================================================== */
 
-/* Telas grandes (laptops e desktops, >= 1200px) */
-@media (min-width: 1200px) {
-    .container {
-        width: 85%;
-        margin: 20px auto;
-        padding: 40px;
-    }
-    h1 { font-size: 7rem; }
-}
-
-/* Telas médias (tablets em paisagem, 992px - 1199px) */
-@media (min-width: 992px) and (max-width: 1199px) {
-    .container {
-        width: 90%;
-        margin: 15px auto;
-    }
-    h1 { font-size: 5rem; }
-}
-
-/* Telas pequenas (tablets em retrato, 768px - 991px) */
-@media (min-width: 768px) and (max-width: 991px) {
-    .tudo {
-        margin-left: 70px;
-    }
-    .container {
-        width: 90%;
-        margin: 0 auto;
-    }
-    h1 { font-size: 4rem; }
-    .carousel-container { width: 60%; }
-}
-
-/* Telas extra pequenas (smartphones, < 768px) */
 @media (max-width: 767px) {
-    .tudo {
-        width: auto;
-        margin-left: 60px;
-    }
-    .header {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-    .container {
-        flex-direction: column;
-        width: auto;
-        padding: 10px;
-        margin: 0 10px;
-    }
-    .box, .box2 {
-        margin: 10px 0;
-    }
-    nav.menu-lateral {
-        width: 60px;
-    }
-    nav.menu-lateral.expandir {
-        width: 250px;
-    }
-    .carousel-container {
-        width: 90%;
-        margin: 20px auto;
-    }
-    .control-button {
-        font-size: 18px;
-        padding: 8px;
-    }
-    .social-links a i {
-        font-size: 2.5rem;
-    }
-    h1 { font-size: 2.2rem; }
-}
-
-/* Ajustes finos para smartphones muito pequenos (< 600px) */
-@media (max-width: 600px) {
-    .header {
-        padding: 10px;
-    }
-    h1 {
-        font-size: 1.8rem;
-    }
-    .container {
-        padding: 10px;
-    }
-    .box, .box2 {
-        font-size: 1rem;
-        padding: 10px;
-    }
-    .carousel-container {
-        width: 100%;
-        margin: 20px 0;
-    }
-    .whatsap {
-        width: 50px;
-        height: 50px;
-        font-size: 24px;
-        bottom: 20px;
-        right: 20px;
-    }
-    .social-links a i {
-        font-size: 2rem;
-    }
+    .product-list { grid-template-columns: 1fr; }
+    .il-grid a { flex-direction: column; align-items: center; }
 }

@@ -937,24 +937,6 @@ button:hover {
             </div>
 
 		</div>
-		<div class="carousel-container">
-			<div class="carousel">
-				<div class="carousel-item">
-					<img src="img/VISITE.png" alt="Anúncio 1">
-				</div>
-				<div class="carousel-item">
-					<img src="img/kumon.jpg" alt="Anúncio 2">
-				</div>
-				<div class="carousel-item">
-					<img src="anuncio3.jpg" alt="Anúncio 3">
-				</div>
-				<!-- Adicione mais itens de anúncio conforme necessário -->
-			</div>
-			<div class="controls">
-				<button id="prev" class="control-button">❮</button>
-				<button id="next" class="control-button">❯</button>
-			</div>
-		</div>
 	</div>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 

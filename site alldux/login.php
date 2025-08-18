@@ -1,10 +1,7 @@
 <?php
-
-// 4. GERAÇÃO DO HTML
-
-// Cabeçalho e abertura do body
-include("processalogin.php");
-echo <<<HTML_HEAD
+// Inicia a sessão para poder lidar com futuras variáveis de sessão se necessário.
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -15,10 +12,6 @@ echo <<<HTML_HEAD
     <link rel="stylesheet" href="css/styleespecifico.css"> 
 </head>
 <body class="dark-mode">
-HTML_HEAD;
-
-// Conteúdo principal da página
-echo <<<HTML_CONTENT
     <button class="theme-toggle" onclick="toggleTheme()">
         <i class="fas fa-moon" id="theme-icon"></i>
     </button>
@@ -28,14 +21,19 @@ echo <<<HTML_CONTENT
         </div>
         <div class="form-container">
             <h1>Login</h1>
-HTML_CONTENT;
 
-if (isset($_GET['success'])) {
-    echo "<div class='form-message success'>Conta criada com sucesso! Faça seu login.</div>";
-}
+            <?php
+            // Verifica se há uma mensagem de erro vinda do processalogin.php
+            if (isset($_GET['error'])) {
+                echo "<div class='form-message error'>" . htmlspecialchars($_GET['error']) . "</div>";
+            }
+            // Verifica se há uma mensagem de sucesso vinda da página de criação de conta
+            if (isset($_GET['success'])) {
+                echo "<div class='form-message success'>Conta criada com sucesso! Faça seu login.</div>";
+            }
+            ?>
 
-echo <<<HTML_FORM
-            <form action="" method="post">
+            <form action="processalogin.php" method="post">
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="password" name="senha" placeholder="Senha" required>
                 <br>
@@ -44,10 +42,7 @@ echo <<<HTML_FORM
             <a href="criarconta.php" class="nav-link">Criar uma conta</a>
         </div>
     </div>
-HTML_FORM;
 
-// Script e fechamento do HTML
-echo <<<HTML_SCRIPT
     <script>
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
@@ -64,11 +59,3 @@ echo <<<HTML_SCRIPT
     </script>
 </body>
 </html>
-HTML_SCRIPT;
-
-// 5. FECHAMENTO DA CONEXÃO
-// Adicionado uma verificação para evitar o erro se a conexão falhar
-if (isset($conn) && $conn) {
-    $conn->close();
-}
-?>

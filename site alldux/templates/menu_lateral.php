@@ -7,7 +7,7 @@
     </div>
     <ul>
         <li class="item-menu ativo">
-            <a href="index.php">
+            <a href="?i=home.php">
                 <span class="icon"><i class="bi bi-house-door"></i></span>
                 <span class="txt-link">Home</span>
             </a>
@@ -21,7 +21,7 @@
             </a>
         </li>
         <li class="item-menu">
-            <a href="criarconta.php">
+            <a href="?i=criarconta.php">
                 <span class="icon"><i class="bi bi-person-circle"></i></span>
                 <span class="txt-link">Conta</span>
             </a>

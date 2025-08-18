@@ -275,7 +275,7 @@
                     <label class="option">
                         <input type="radio" name="tipo" value="promotor" required>
                         <img src="img/prestador de serviço.jpg" alt="Promotor">
-                        <p>Prestador de Serviço/p>
+                        <p>Prestador de Serviço</p>
                     </label>
         
                     <!-- Botão Continuar abaixo das imagens -->
