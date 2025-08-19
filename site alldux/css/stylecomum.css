@@ -148,6 +148,10 @@ footer {
     font-family: 'Arial', sans-serif;
 }
 
+.footer-container {
+    margin: 0;
+}
+
 .footer-content {
     display: flex;
     flex-direction: column;
@@ -447,6 +451,30 @@ p { color: #555; line-height: 1.6; }
 
 .link a:hover { color: #d9534f; }
 
+/* WhatsApp button */
+.whatsap {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    box-shadow: 3px 3px #888;
+    z-index: 100;
+}
+
+.whatsap a i {
+    color: white;
+}
+
+
 /* ==========================================================================
    6. RESPONSIVIDADE
    ========================================================================== */
@@ -454,4 +482,125 @@ p { color: #555; line-height: 1.6; }
 @media (max-width: 767px) {
     .product-list { grid-template-columns: 1fr; }
     .il-grid a { flex-direction: column; align-items: center; }
+}
+/* ==========================================================================
+   ESTILOS ESPECÍFICOS PARA A PÁGINA DE PERFIL
+   ========================================================================== */
+
+/* Container principal da página de perfil */
+.container2.perfil-container {
+    max-width: 700px; /* Limita a largura para melhor legibilidade */
+    margin: 20px auto;
+    text-align: left; /* Alinha o texto dos formulários à esquerda */
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Título principal "Meu Perfil" */
+.perfil-container h3 {
+    text-align: center;
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    color: #333;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+/* Títulos das seções (Atualizar Dados, Alterar Senha, etc.) */
+.perfil-container h4 {
+    font-size: 1.4em;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Estilo para todos os formulários da página */
+.perfil-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaçamento entre os elementos do formulário */
+}
+
+/* Etiquetas dos campos (Nome, E-mail, Nova Senha) */
+.perfil-container label {
+    font-weight: bold;
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* Campos de texto e senha */
+.perfil-container input[type="text"],
+.perfil-container input[type="email"],
+.perfil-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.perfil-container input[type="text"]:focus,
+.perfil-container input[type="email"]:focus,
+.perfil-container input[type="password"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+/* Botões de envio dos formulários */
+.perfil-container button[type="submit"] {
+    width: auto; /* Largura automática */
+    align-self: flex-start; /* Alinha o botão à esquerda */
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.perfil-container button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Botão específico para exclusão (vermelho) */
+.perfil-container .btn-danger {
+    background-color: #dc3545;
+}
+
+.perfil-container .btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Linha horizontal para separar as seções */
+.perfil-container hr {
+    border: none;
+    height: 1px;
+    background-color: #eee;
+    margin: 30px 0;
+}
+
+/* Mensagens de sucesso ou erro */
+.form-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    font-size: 1em;
+    text-align: center;
+    border: 1px solid transparent;
+}
+
+.form-message.success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
 }

@@ -1,0 +1,112 @@
+/* ==========================================================================
+   ESTILOS PARA O DASHBOARD DO CONSUMIDOR
+   ========================================================================== */
+
+/* Container principal da lista de produtos */
+.container2 {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f7f8fa;
+    color: #333;
+    text-align: center;
+    border-radius: 12px;
+}
+
+/* Título "Produtos Disponíveis" */
+.container2 h3 {
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    color: #333;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    width: 100%;
+}
+
+/* Grade que segura os cards de produtos */
+.product-list {
+    display: grid;
+    /* Cria colunas flexíveis com no mínimo 280px */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px; /* Espaçamento entre os cards */
+    width: 100%;
+}
+
+/* Card individual de cada produto */
+.product {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.product:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Link que envolve todo o card */
+.product a {
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Faz o link ocupar todo o espaço do card */
+}
+
+/* Imagem do produto */
+.product img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+}
+
+/* Bloco de informações do produto (nome, preço, etc.) */
+.product-info {
+    padding: 15px;
+    flex-grow: 1; /* Permite que este bloco cresça para preencher o espaço */
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info strong {
+    font-size: 1.3em;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.product-info p {
+    color: #666;
+    margin-bottom: 12px;
+    flex-grow: 1; /* Empurra o preço e vendedor para baixo */
+}
+
+.product-info span {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007bff; /* Cor de destaque para o preço */
+    margin-bottom: 5px;
+}
+
+.product-info small {
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Responsividade para a grade de produtos em telas menores */
+@media (max-width: 767px) {
+    .product-list {
+        grid-template-columns: 1fr; /* Apenas uma coluna em celulares */
+    }
+
+    .container2 h3 {
+        font-size: 1.8em;
+    }
+}

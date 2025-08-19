@@ -21,10 +21,22 @@
             </a>
         </li>
         <li class="item-menu">
-            <a href="?i=criarconta.php">
-                <span class="icon"><i class="bi bi-person-circle"></i></span>
-                <span class="txt-link">Conta</span>
-            </a>
+            <?php
+            if ($is_logged_in && !empty($nome_usuario)) {
+                echo <<<USER_INFO
+                <a href="index.php?i=perfil">
+                    <span class="icon"><i class="bi bi-person-circle"></i></span>
+                    <span class="txt-link">perfil</span>
+                </a>
+                USER_INFO;
+            } else {
+                echo '  
+                <a href="criarconta.php">
+                    <span class="icon"><i class="bi bi-person-circle"></i></span>
+                    <span class="txt-link">Conta</span>
+                </a>';
+            }
+            ?> 
         </li>
         <li class="item-menu">
             <div class="auth-button">

@@ -1,6 +1,12 @@
 <?php
 // templates/footer.php
 ?>
+<div class="whatsap">
+    <a href="https://wa.me/5585981252196?text=">
+        <i class="fa fa-whatsapp"></i>
+    </a>
+</div>
+
     <footer>
         <div class="footer-container">
             <div class="footer-content">
