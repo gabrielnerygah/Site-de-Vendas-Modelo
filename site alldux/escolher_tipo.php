@@ -1,296 +1,240 @@
+<?php
+// 1. LÓGICA PHP NO TOPO
+// A sessão DEVE ser a primeira coisa no arquivo.
+session_start();
+include('conexao.php');
+
+// Apenas usuários logados podem escolher um tipo.
+if (!isset($_SESSION['id_usuario'])) {
+    header("Location: login.php");
+    exit;
+}
+
+// Garante que a variável $tipo_usuario sempre exista para evitar erros
+$tipo_usuario = $_SESSION['tipo_usuario'] ?? null;
+
+// Prepara variáveis booleanas para deixar o HTML mais limpo
+$isConsumidor = ($tipo_usuario === 'consumidor');
+$isPromotor = ($tipo_usuario === 'promotor');
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>escolher tipo de conta</title>
+    <title>Escolha seu Tipo de Conta</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
 
-<body class="dark-mode">
     <style>
-        :root {
-         --altura-opcao: 50%; /* Defina a altura desejada */
-         --altura-margin:2rem;
-         }
-
-        /* Reset básico */
+        /* Reset e Estilos Gerais */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
 
-        /* Corpo e tema escuro */
-        body.dark-mode {
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #121212;
+            overflow: hidden;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #121212, #232526);
             color: #e0e0e0;
         }
 
         body.light-mode {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #ffffffde;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
             color: #333;
         }
-
-        /* Container principal */
-        .login-container {
+        
+        /* Layout Principal */
+        .auth-container {
             display: flex;
-            width: 80%;
-            border-radius: 8px;
+            align-items: center;
+            width: 90%;
+            max-width: 950px;
+            position: relative;
         }
 
-        /* Estilo da imagem na lateral esquerda */
         .image-container {
-            width: 34%;
-            z-index: 3; /* Mantendo a imagem acima do fundo */
+            flex-basis: 45%;
+            z-index: 2;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+            border-radius: 20px;
         }
-
 
         .image-container img {
-            margin-left: 10%;
-            margin-top: --altura-margin;
-            margin-bottom: 0;
             width: 100%;
-            height: --altura-opcao ;
-            object-fit: cover;
-            border-radius: 50px;
+            display: block;
+            border-radius: 20px;
         }
 
-        /* Container do formulário */
-
-
-        body.light-mode .form-container {
-            background-color: #f3e2d8;
+        /* Formulário com Efeito de Vidro */
+        .form-container {
+            flex-basis: 65%;
+            padding: 2rem 2rem 2rem 8rem;
+            margin-left: -120px;
+            border-radius: 20px;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            text-align: center;
         }
 
-        /* Título do formulário */
+        body.dark-mode .form-container { background: rgba(46, 46, 46, 0.9); }
+        body.light-mode .form-container { background: #f3e2d8 }
+
         .form-container h1 {
-            font-size: 1.8rem;
+            font-size: 1.8;
             color: inherit;
+            font-weight: 700;
             margin-bottom: 1rem;
         }
 
-
-
-        .form-container input[type="submit"]:hover {
-            background-color: #155ab2;
-        }
-
-        /* Links */
-        .form-container .nav-link {
-            color: #1a73e8;
-            font-size: 0.9rem;
-            text-decoration: none;
-            margin-top: 1rem;
-            display: inline-block;
-        }
-
-        .form-container .nav-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Botão de alternância de tema */
-        .theme-toggle {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            padding: 8px 12px;
-            font-size: 0.9rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: #1a73e8;
-            color: #fff;
-            transition: background-color 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            background-color: #155ab2;
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .login-container {
-                flex-direction: column;
-            }
-
-            .image-container {
-                width: auto;
-                height: auto;
-                margin: auto;
-            }
-
-            .image-container img {
-                width: 100%;
-                margin: auto;
-            }
-
-            .form-container {
-                width: 100%;
-            }
-        }
-
-        h1 {
-            color: inherit;
-            margin-bottom: 30px;
-            font-size: 2rem;
-            font-weight: 600;
-        }
-
-        /* Container do formulário */
-        .form-container {
-            height: --altura-opcao;
-            border-radius: 50px;
+        /* Formulário com as Opções */
+        .type-selection-form {
             display: flex;
             justify-content: center;
-            width: auto;
-            padding-top: --altura-margin ;
-            padding-left: 2rem;
-            padding-right: 2rem;
-            align-items: center;
+            gap: 25px;
             flex-wrap: wrap;
-            margin-top: 30px;
-            text-align: center;
-            background-color: rgba(46, 46, 46, 0.9);
-            z-index: 2; /* Manter o formulário acima da imagem */
-        }
-        .form-container2 {
-            border-radius: 50px;
-            display: flex;
-            justify-content: center;
-            width: auto;
-            padding: 2rem;
             align-items: center;
-            flex-wrap: wrap;
-            margin-top: 30px;
-            text-align: center;
-            background-color: rgba(63, 62, 62, 0.945);
-            z-index: 2; /* Manter o formulário acima da imagem */
         }
 
-
-        /* Estilo das opções */
+        /* Estilo das opções clicáveis */
         .option {
-            width: 220px;
-            height: 220px;
-            border-radius: 10px;
+            width: 200px;
+            height: 250px;
+            border-radius: 15px;
             cursor: pointer;
             border: 3px solid transparent;
             transition: all 0.3s ease;
             overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .option img {
             width: 100%;
             height: 100%;
-            border-radius: 10px;
             object-fit: cover;
+            transition: transform 0.3s ease;
         }
 
-        .option input {
-            display: none; /* Oculta os botões de rádio */
-        }
-
-        /* Efeito hover e seleção */
-        .option:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-            border-color: #007BFF;
-        }
-
-        .option input:checked + img {
-            border: 5px solid #007BFF;
-        }
-
-        /* Estilo do botão de submit */
-        input[type="submit"] {
-            background-color: #28a745;
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 50px;
-            font-size: 18px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
+        .option p {
+            position: absolute;
+            bottom: 0;
+            left: 0;
             width: 100%;
-            max-width: 220px;
+            padding: 10px;
+            background: #333;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin: 0;
         }
 
-        input[type="submit"]:hover {
-            background-color: #218838;
-        }
-         /* Responsividade */
-         @media (max-width: 768px) {
-            .form-container {
-                flex-direction: column;
-            }
+        .option input[type="radio"] { display: none; }
 
-            .option {
-                width: 180px;
-                height: 180px;
-            }
-
-            input[type="submit"] {
-                max-width: 90%;
-            }
+        .option:hover {
+            transform: scale(0.98);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
         }
 
+        .option:hover img { transform: scale(1.1); }
+
+        .option.selected {
+            border-color: #1a73e8;
+            box-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
+        }
+        /* Botão de Envio */
+        .type-selection-form input[type="submit"] {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            background: #155ab2;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+        }
+
+        .type-selection-form input[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Botão de Tema */
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+        body.light-mode .theme-toggle { background: #fff; color: #333; }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            body { align-items: flex-start; padding: 2rem 1rem; height: auto; }
+            .auth-container { flex-direction: column; }
+            .image-container { width: 60%; max-width: 250px; margin-bottom: -50px; }
+            .form-container { width: 100%; margin-left: 0; padding: 4rem 1.5rem 1.5rem; }
+            .option { width: 150px; height: 200px; }
+        }
     </style>
+</head>
+<body class="dark-mode">
 
-    <!-- Botão para alternar tema -->
     <button class="theme-toggle" onclick="toggleTheme()">
         <i class="fas fa-sun" id="theme-icon"></i>
     </button>
 
-    <div class="login-container">
-        <!-- Contêiner da imagem de fundo -->
+    <div class="auth-container">
         <div class="image-container">
             <img src="img/escolhertipo.jpg" alt="Imagem lateral">
         </div>
 
-        <!-- Contêiner do formulário sobreposto -->
         <div class="form-container">
-            <div>
-                <h1>Escolha seu Tipo de Conta</h1>
-                <form action="processa_tipo.php" method="post" class="form-container2">
-                    <!-- Botão para Consumidor -->
-                    <label class="option">
-                        <input type="radio" name="tipo" value="consumidor" required>
-                        <img src="img/usuarios.jpg" alt="Consumidor">
-                        <p>Consumidor</p>
-                    </label>
-        
-                    <!-- Botão para Promotor -->
-                    <label class="option">
-                        <input type="radio" name="tipo" value="promotor" required>
-                        <img src="img/prestador de serviço.jpg" alt="Promotor">
-                        <p>Prestador de Serviço</p>
-                    </label>
-        
-                    <!-- Botão Continuar abaixo das imagens -->
-                    <input type="submit" value="Continuar">
-                </form>
-            </div>
+            <h1>Escolha seu Tipo de Conta</h1>
+            <form action="processa_tipo.php" method="post" class="type-selection-form">
+
+                <label class="option <?php if ($isConsumidor) echo 'selected'; ?>">
+                    <input type="radio" name="tipo" value="consumidor" <?php if ($isConsumidor) echo 'checked'; ?> required>
+                    <img src="img/usuarios.jpg" alt="Consumidor">
+                    <p>Consumidor</p>
+                </label>
+
+                <label class="option <?php if ($isPromotor) echo 'selected'; ?>">
+                    <input type="radio" name="tipo" value="promotor" <?php if ($isPromotor) echo 'checked'; ?> required>
+                    <img src="img/prestador de serviço.jpg" alt="Promotor">
+                    <p>Produtor</p>
+                </label>
+
+                <input type="submit" value="Mudar Tipo de Conta">
+            </form>
         </div>
     </div>
 
     <script>
-  // Função para alternar entre os temas
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
             document.body.classList.toggle('light-mode');
-
             const themeIcon = document.getElementById('theme-icon');
             if (document.body.classList.contains('dark-mode')) {
                 themeIcon.classList.remove('fa-sun');
@@ -300,5 +244,14 @@
                 themeIcon.classList.add('fa-sun');
             }
         }
+        // Garante que o ícone inicial esteja correto
+        if (document.body.classList.contains('dark-mode')) {
+            document.getElementById('theme-icon').classList.add('fa-moon');
+        }
     </script>
 </body>
+</html>
+<?php
+// 5. FECHAMENTO DA CONEXÃO
+$conn->close();
+?>

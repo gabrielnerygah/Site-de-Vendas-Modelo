@@ -10,7 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="sortcut icon" href="img/logo.png" type="image/x-icon">
     <title>Rádio Canadá Brasil</title>
-    <link rel="stylesheet" href="css/stylecomum.css"> <?php if ($pagina == 'dashboard_consumidor'): ?>
+    <link rel="stylesheet" href="css/stylecomum.css">
+    <?php if ($pagina == 'dashboard_consumidor'): ?>
         <link rel="stylesheet" href="css/dashboard_consumidor.css">
     <?php elseif ($pagina == 'perfil'): ?>
         <link rel="stylesheet" href="css/perfil.css">

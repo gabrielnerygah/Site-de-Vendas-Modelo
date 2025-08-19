@@ -1,44 +1,56 @@
 <?php
+// Inicia a sessão
 session_start();
+include('conexao.php');
 
-$host = '127.0.0.1:3306'; // Altere para o seu host
-$db = 'u393630075_database'; // Altere para o seu banco de dados
-$user = 'u393630075_admin'; // Altere para o seu usuário do banco
-$pass = 'Gdml22052007$'; // Altere para a sua senha do banco
-
-// Cria a conexão
-$conn = new mysqli($host, $user, $pass, $db);
-
-// Verifica a conexão
-if ($conn->connect_error) {
-    die("Erro de conexão: " . $conn->connect_error);
-}
-
-// Verifica se o usuário está logado
-if (!isset($_SESSION['usuario'])) {
-    header("Location: login.php"); // Redireciona para login se não estiver logado
+// 1. VERIFICAÇÃO DE SEGURANÇA
+// Apenas usuários logados podem mudar seu tipo
+if (!isset($_SESSION['id_usuario'])) {
+    header("Location: login.php");
     exit;
 }
 
-// Recebe o tipo de usuário selecionado
-$tipo = $_POST['tipo'];
-$email = $_SESSION['usuario']; // Obtém o email do usuário da sessão
-
-// Atualiza o tipo de usuário na tabela 'usuarios'
-$sql = "UPDATE usuarios SET tipo = ? WHERE email = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("ss", $tipo, $email);
-
-if ($stmt->execute()) {
-    // Tipo de usuário atualizado com sucesso
-    header("Location: index.php"); // Redireciona para a página inicial
-    exit;
+// Verifica se o formulário foi enviado com o método POST e se o campo 'tipo' existe
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['tipo'])) {
+    
+    $novo_tipo = $_POST['tipo'];
+    $usuarioId = $_SESSION['id_usuario'];
+    
+    // 2. VALIDAÇÃO
+    // Garante que o valor enviado seja um dos permitidos
+    if ($novo_tipo === 'consumidor' || $novo_tipo === 'promotor') {
+        
+        // 3. ATUALIZAÇÃO NO BANCO DE DADOS
+        // Usa prepared statements para máxima segurança
+        $sql = "UPDATE usuarios SET tipo = ? WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("si", $novo_tipo, $usuarioId);
+        
+        if ($stmt->execute()) {
+            // 4. ATUALIZAÇÃO NA SESSÃO
+            // Se a atualização no banco deu certo, atualiza a sessão também
+            $_SESSION['tipo_usuario'] = $novo_tipo;
+            
+            // 5. REDIRECIONAMENTO
+            // Redireciona de volta para a página de perfil com mensagem de sucesso
+            header("Location: index.php?i=perfil&success=Tipo de conta alterado com sucesso!");
+            exit;
+        } else {
+            // Se deu erro na atualização
+            header("Location: index.php?i=escolher_tipo&error=Erro ao atualizar o tipo de conta.");
+            exit;
+        }
+        $stmt->close();
+    } else {
+        // Se o valor enviado em 'tipo' não for válido
+        header("Location: index.php?i=escolher_tipo&error=Tipo de conta inválido.");
+        exit;
+    }
 } else {
-    // Erro ao atualizar o tipo de usuário
-    echo "Erro: " . $stmt->error;
+    // Se o arquivo for acessado diretamente, redireciona para a home
+    header("Location: index.php");
+    exit;
 }
 
-// Fecha a conexão
-$stmt->close();
 $conn->close();
 ?>

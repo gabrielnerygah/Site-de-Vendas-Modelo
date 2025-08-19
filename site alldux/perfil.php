@@ -129,6 +129,10 @@ $stmt->close();
 
     <hr>
     
+    <h4>mudar tipo de conta</h4>
+
+    <a href="escolher_tipo.php">mudar tipo</a>
+    
     <hr>
 
     <h4>Alterar Senha</h4>

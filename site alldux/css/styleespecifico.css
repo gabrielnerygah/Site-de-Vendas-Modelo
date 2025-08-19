@@ -78,6 +78,7 @@ body.light-mode .form-container {
 
 .form-container h1 {
     font-size: 1.8rem;
+    font-weight: 700;
     color: inherit;
     margin-bottom: 1rem;
 }
