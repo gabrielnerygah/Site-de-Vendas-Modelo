@@ -1,10 +1,10 @@
 <?php
-// 1. INICIALIZAÇÃO E LÓGICA DE BACK-END
-session_start();
 
 
-// Processa o formulário quando um produto é adicionado
 if (isset($_POST['adicionar_produto'])) {
+    // Pega o ID do usuário que está logado na sessão
+    $id_usuario_logado = $_SESSION['id_usuario'];
+
     $nome = $_POST['nome'];
     $descricao = $_POST['descricao'];
     $preco = $_POST['preco'];
@@ -12,7 +12,9 @@ if (isset($_POST['adicionar_produto'])) {
 
     // Lógica para upload da imagem
     if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] == 0) {
-        $diretorio_uploads = 'uploads/';
+        $diretorio_uploads = 'uploads/'; // A pasta que você criou no passo anterior
+        
+        // Cria um nome de arquivo único para segurança
         $nome_arquivo = uniqid() . '_' . basename($_FILES['imagem']['name']);
         $caminho_completo = $diretorio_uploads . $nome_arquivo;
 
@@ -21,20 +23,24 @@ if (isset($_POST['adicionar_produto'])) {
         }
     }
 
-    // Insere o produto no banco de dados usando prepared statements para segurança
-    $stmt = $conn->prepare("INSERT INTO produtos (nome, descricao, preco, imagem) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssds", $nome, $descricao, $preco, $caminho_imagem);
+    // --- CORREÇÃO PRINCIPAL AQUI ---
+    // A query INSERT agora inclui a coluna 'id_usuario'
+    $stmt = $conn->prepare("INSERT INTO produtos (id_usuario, nome, descricao, preco, imagem) VALUES (?, ?, ?, ?, ?)");
+    
+    // O 'i' no início corresponde ao tipo de dado de id_usuario (integer)
+    $stmt->bind_param("isdds", $id_usuario_logado, $nome, $descricao, $preco, $caminho_imagem);
+    
     $stmt->execute();
     $stmt->close();
 
     // Redireciona para a mesma página para evitar reenvio do formulário
-    header("Location: " . $_SERVER['PHP_SELF']);
+    header("Location: " . $_SERVER['PHP_SELF']); // Ou para index.php?i=dashboard_promotor
     exit();
 }
 
 // Busca todos os produtos para exibir na página
-/*$sql = "SELECT * FROM produtos ORDER BY id DESC";
-$result = $conn->query($sql);*/
+$sql = "SELECT * FROM produtos ORDER BY id DESC";
+$result = $conn->query($sql);
 
 // Prepara variáveis da sessão para exibição segura
 $is_logged_in = isset($_SESSION['nome_usuario']);
@@ -55,11 +61,11 @@ echo <<<HTML_PRODUCTS
     <div class="container">
         <div class="container2">
             <h3>Adicionar Produto</h3>
-            <form method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data" class="add-product-form">
                 <input type="text" name="nome" placeholder="Nome do Produto" required><br>
                 <textarea name="descricao" placeholder="Descrição do Produto"></textarea><br>
                 <input type="number" name="preco" step="0.01" placeholder="Preço" required><br>
-                <input type="file" name="imagem" accept="image/*" required><br>
+                <input type="file" name="imagem" class="input-file-bonito"><br>
                 <button type="submit" name="adicionar_produto">Adicionar Produto</button>
             </form>
 

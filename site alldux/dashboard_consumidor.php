@@ -38,8 +38,9 @@ $result->free();
         <div class="product-list">
             <?php foreach ($produtos as $produto): ?>
                 <div class="product">
-                    <a href="index.php?i=produto&id=<?php echo htmlspecialchars($produto['id']); ?>">
-                        <img src="<?php echo htmlspecialchars($produto['imagem']); ?>" alt="<?php echo htmlspecialchars($produto['nome']); ?>">
+                    <a href="#" onclick="abrirModalCompra(<?php echo htmlspecialchars(json_encode($produto)); ?>)">
+                        <img src="<?php echo htmlspecialchars($produto['imagem']); ?>"
+                            alt="<?php echo htmlspecialchars($produto['nome']); ?>">
                         <div class="product-info">
                             <strong><?php echo htmlspecialchars($produto['nome']); ?></strong>
                             <p><?php echo htmlspecialchars($produto['descricao']); ?></p>
@@ -51,30 +52,8 @@ $result->free();
             <?php endforeach; ?>
         </div>
 
-        <br><hr><br>
-
-        <div class="container">
-            <div class="container2">
-                <h3>Lista em formato alternativo</h3>
-                <ul class="ul">
-                    <?php foreach ($produtos as $produto): ?>
-                        <li class="il">
-                            <a href="produto.php?id=<?php echo htmlspecialchars($produto['id']); ?>">
-                                <strong>
-                                    <img src="<?php echo htmlspecialchars($produto['imagem']); ?>" alt="<?php echo htmlspecialchars($produto['nome']); ?>"><br>
-                                    <div class="descricao">
-                                        <?php echo htmlspecialchars($produto['nome']); ?><br>
-                                        <?php echo htmlspecialchars($produto['descricao']); ?><br>
-                                        R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?><br>
-                                        Vendido por: <?php echo htmlspecialchars($produto['promotor_nome']); ?>
-                                    </div>
-                                </strong>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        </div>
+        <br>
+        <hr><br>
     <?php else: ?>
         <p>Nenhum produto disponível no momento.</p>
     <?php endif; ?>

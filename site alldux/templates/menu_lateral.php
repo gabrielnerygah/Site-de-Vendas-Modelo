@@ -36,7 +36,7 @@
                     <span class="txt-link">Conta</span>
                 </a>';
             }
-            ?> 
+            ?>
         </li>
         <li class="item-menu">
             <div class="auth-button">
@@ -49,6 +49,12 @@
                 }
                 ?>
             </div>
+        </li>
+        <li class="item-menu">
+            <a href="#" onclick="abrirModalPedidos()">
+                <span class="icon"><i class="bi bi-box-seam"></i></span>
+                <span class="txt-link">Meus Pedidos</span>
+            </a>
         </li>
     </ul>
 </nav>

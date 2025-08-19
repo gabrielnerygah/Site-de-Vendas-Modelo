@@ -1,0 +1,82 @@
+/* ==========================================================================
+   ESTILOS PARA FORMULÁRIO DE PROMOTOR
+   ========================================================================== */
+
+/* Container do formulário de adição de produto */
+.add-product-form {
+    background-color: #ffffff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 700px; /* Limita a largura para melhor legibilidade */
+    text-align: left;
+}
+
+.add-product-form input[type="text"],
+.add-product-form input[type="number"],
+.add-product-form textarea,
+.add-product-form input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.add-product-form input:focus,
+.add-product-form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+.add-product-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.add-product-form button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-product-form button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Estilo base para o container do input */
+.input-file-bonito {
+    font-family: inherit; /* Usa a mesma fonte do resto do site */
+    font-size: 1rem;
+}
+
+/* --- A MÁGICA ACONTECE AQUI --- */
+/* Estiliza o botão "Escolher arquivo" */
+.input-file-bonito::file-selector-button {
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 15px; /* Espaço entre o botão e o texto do nome do arquivo */
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito hover para o botão */
+.input-file-bonito::file-selector-button:hover {
+    background-color: #0056b3;
+}
