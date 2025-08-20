@@ -76,7 +76,71 @@
     </div>
 </div>
 
+<div id="modal-carrinho" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+        <button class="modal-close" onclick="fecharModalCarrinho()">&times;</button>
+        <h2>Seu Carrinho de Compras</h2>
+        <div id="cart-items-container">
+        </div>
+        <div class="cart-summary">
+            <strong>Total: R$ <span id="cart-total">0,00</span></strong>
+        </div>
+        <button class="btn-checkout">Finalizar Compra</button>
+    </div>
+</div>
+
 <script>
+
+    // Adicione estas funções na sua tag <script> em footer.php
+
+    function fecharModalCarrinho() {
+        document.getElementById('modal-carrinho').style.display = 'none';
+    }
+
+    async function abrirModalCarrinho() {
+        // Busca os itens do carrinho no backend
+        const response = await fetch('api/obter_carrinho.php');
+        const result = await response.json();
+
+        const itemsContainer = document.getElementById('cart-items-container');
+        const cartTotalEl = document.getElementById('cart-total');
+        itemsContainer.innerHTML = ''; // Limpa o conteúdo anterior
+
+        if (result.success && result.itens.length > 0) {
+            let total = 0;
+
+            result.itens.forEach(item => {
+                const itemTotal = item.preco * item.quantidade;
+                total += itemTotal;
+
+                // Cria o HTML para cada item
+                const itemHTML = `
+                <div class="cart-item">
+                    <img src="${item.imagem}" alt="${item.nome}">
+                    <div class="cart-item-details">
+                        <strong>${item.nome}</strong>
+                        <small>Quantidade: ${item.quantidade}</small>
+                    </div>
+                    <div class="cart-item-actions">
+                        <span class="item-price">R$ ${itemTotal.toFixed(2).replace('.', ',')}</span>
+                    </div>
+                </div>
+            `;
+                itemsContainer.innerHTML += itemHTML;
+            });
+
+            // Atualiza o valor total
+            cartTotalEl.innerText = total.toFixed(2).replace('.', ',');
+
+        } else {
+            itemsContainer.innerHTML = '<p>Seu carrinho está vazio.</p>';
+            cartTotalEl.innerText = '0,00';
+        }
+
+        // Mostra o modal
+        document.getElementById('modal-carrinho').style.display = 'flex';
+    }
+
     // Função para redirecionar para o dashboard correto
     function redirecionaDashboard() {
         // Variável PHP passada de forma segura para o JavaScript
@@ -232,6 +296,46 @@
         // Mostra o modal
         document.getElementById('modal-pedidos').style.display = 'flex';
     }
+
+
+
+    async function adicionarAoCarrinho(produtoId) {
+        const badge = document.getElementById('cart-count-badge');
+        const cartIcon = document.querySelector('.cart-icon-link');
+
+        // Prepara os dados para enviar ao backend
+        const formData = new FormData();
+        formData.append('produto_id', produtoId);
+
+        try {
+            // Envia o ID do produto para o script PHP
+            const response = await fetch('api/adicionar_carrinho.php', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                // Atualiza o número no contador do carrinho
+                badge.textContent = result.novaContagem;
+                badge.setAttribute('data-count', result.novaContagem);
+
+                // Adiciona uma animação para feedback visual
+                cartIcon.classList.add('shake');
+                setTimeout(() => {
+                    cartIcon.classList.remove('shake');
+                }, 500); // Duração da animação
+
+            } else {
+                alert("Erro ao adicionar o produto ao carrinho.");
+            }
+        } catch (error) {
+            console.error('Erro na requisição:', error);
+            alert("Ocorreu um erro de comunicação. Tente novamente.");
+        }
+    }
+
 </script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

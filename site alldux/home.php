@@ -32,6 +32,8 @@ while ($row = $result->fetch_assoc()) {
 $result->free();
 ?>
 
+<!-- Removido foreach duplicado e preparação de variáveis fora do loop principal -->
+
 
 <h1>Rádio Canadá Brasil</h1>
 <div class="container">
@@ -41,21 +43,32 @@ $result->free();
             <?php if (count($produtos) > 0): ?>
                 <div class="product-list">
                     <?php foreach ($produtos as $produto): ?>
+                        <?php
+                            // Prepara variáveis para exibição segura dentro do loop
+                            $produto_id = htmlspecialchars($produto['id']);
+                            $produto_imagem = htmlspecialchars($produto['imagem']);
+                            $produto_nome = htmlspecialchars($produto['nome']);
+                            $produto_descricao = htmlspecialchars($produto['descricao']);
+                            $produto_preco = number_format($produto['preco'], 2, ',', '.');
+                            $promotor_nome = htmlspecialchars($produto['promotor_nome']);
+                        ?>
                         <div class="product">
-                            <a href="#" onclick="abrirModalCompra(<?php echo htmlspecialchars(json_encode($produto)); ?>)">
-                                <img src="<?php echo htmlspecialchars($produto['imagem']); ?>"
-                                    alt="<?php echo htmlspecialchars($produto['nome']); ?>">
-                                <div class="product-info">
-                                    <strong><?php echo htmlspecialchars($produto['nome']); ?></strong>
-                                    <p><?php echo htmlspecialchars($produto['descricao']); ?></p>
-                                    <span>R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></span>
-                                    <small>Vendido por: <?php echo htmlspecialchars($produto['promotor_nome']); ?></small>
-                                </div>
-                            </a>
+                                <a href="index.php?i=produto&id=<?php echo $produto_id; ?>">
+                                    <img src="<?php echo $produto_imagem; ?>" alt="<?php echo $produto_nome; ?>">
+                                    <div class="product-info-top">
+                                        <strong><?php echo $produto_nome; ?></strong>
+                                        <p><?php echo $produto_descricao; ?></p>
+                                    </div>
+                                </a>
+                                <div class="product-info-bottom">
+                                    <span>R$ <?php echo $produto_preco; ?></span>
+                                    <button class="btn-add-carrinho" onclick="adicionarAoCarrinho(<?php echo $produto_id; ?>)">
+                                        <i class="fas fa-cart-plus"></i> Adicionar
+                                    </button>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
-
                 <br>
                 <hr><br>
             <?php else: ?>

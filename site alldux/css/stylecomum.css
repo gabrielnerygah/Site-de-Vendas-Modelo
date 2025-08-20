@@ -207,6 +207,7 @@ footer {
 .social-links a:hover i.fa-instagram {
     background: linear-gradient(45deg, #f7241d, #e6683c, #0eb129, #0780e4, #2f00b1);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -286,8 +287,6 @@ footer {
 }
 
 .box2 {
-    background-color: #f9e9c3;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -303,7 +302,7 @@ audio { width: 100%; }
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ffffff;
+    background-color: #ffffff00;
     color: #333;
     text-align: center;
 }
@@ -326,16 +325,18 @@ audio { width: 100%; }
 }
 
 .product {
+    color: white;
     background: #606060;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 5px solid rgba(0,0,0,0.1);
     overflow: hidden;
     transition: transform 0.2s ease;
     text-align: left;
 }
 
 .product:hover {
-    transform: translateY(-5px);
+    box-shadow: 5px solid (0,0,0,0.1);
+    transform: translateY(-3px);
 }
 
 .product a {
@@ -363,21 +364,21 @@ audio { width: 100%; }
 
 .product-info p {
     font-size: 0.95rem;
-    color: #555;
+    color: white;
     margin-bottom: 10px;
 }
 
 .product-info span {
     font-size: 1rem;
     font-weight: bold;
-    color: #009578;
+    color: #f6faf9;
     display: block;
     margin-bottom: 6px;
 }
 
 .product-info small {
     font-size: 0.8rem;
-    color: #777;
+    color: #b6b6b6;
 }
 
 /* Lista alternativa */
@@ -705,4 +706,169 @@ p { color: #555; line-height: 1.6; }
 .pedido-body {
     color: #555;
     font-size: 0.9em;
+}
+
+/* ==========================================================================
+   ESTILOS PARA O CABEÇALHO E CARRINHO
+   ========================================================================== */
+
+/* Wrapper para os elementos da direita no header */
+.header-direita {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaçamento entre nome, foto e carrinho */
+}
+
+/* Foto de perfil no header */
+.avatar-header {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+}
+
+/* Link do ícone do carrinho */
+.cart-icon-link {
+    position: relative; /* Essencial para posicionar o contador */
+    color: #fff;
+    font-size: 1.5rem; /* Tamanho do ícone */
+    text-decoration: none;
+    padding: 5px;
+}
+
+/* Contador (badge) do carrinho */
+.cart-badge {
+    position: absolute;
+    top: -5px;   /* Posição vertical */
+    right: -8px; /* Posição horizontal */
+    
+    background-color: #dc3545; /* Vermelho para destaque */
+    color: white;
+    
+    width: 22px;
+    height: 22px;
+    border-radius: 50%; /* Deixa o contador redondo */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 0.75rem; /* Tamanho da fonte do número */
+    font-weight: bold;
+    border: 2px solid #333; /* Borda para separar do fundo */
+}
+
+/* Esconde o contador se não houver itens no carrinho */
+.cart-badge[data-count="0"] {
+    display: none;
+}
+
+/* Ajustes no card de produto para o botão de carrinho */
+
+.product-info-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px 15px 15px; /* Adiciona padding na parte de baixo */
+    margin-top: auto; /* Garante que fique no final */
+}
+
+/* Estilo do novo botão "Adicionar ao Carrinho" */
+.btn-add-carrinho {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-add-carrinho:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.btn-add-carrinho:active {
+    transform: scale(0.98);
+}
+
+/* Animação para o ícone do carrinho no header */
+.cart-icon-link.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Estilos para o Modal do Carrinho */
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details strong {
+    display: block;
+    color: #333;
+}
+
+.cart-item-details small {
+    color: #777;
+}
+
+.cart-item-actions {
+    text-align: right;
+}
+
+.cart-item-actions .item-price {
+    font-weight: bold;
+    color: #333;
+}
+
+.cart-summary {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 1.4em;
+    color: #333;
+}
+
+.btn-checkout {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-checkout:hover {
+    background-color: #218838;
 }

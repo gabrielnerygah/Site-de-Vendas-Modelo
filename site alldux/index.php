@@ -15,6 +15,13 @@ if (isset($_GET['i'])) {
     $pagina = $_GET['i'];
 }
 
+// NOVO: Calcula a contagem de itens no carrinho
+$contagem_carrinho = 0;
+if (!empty($_SESSION['carrinho']) && is_array($_SESSION['carrinho'])) {
+    $contagem_carrinho = count($_SESSION['carrinho']);
+}
+
+
 // --- MONTAGEM DA PÁGINA ---
 require_once 'templates/header.php';
 require_once 'templates/menu_lateral.php';

@@ -28,8 +28,6 @@
 <body></body>
 
 
-
-
 <body>
 
     <div class="tudo">
@@ -38,4 +36,10 @@
                 <img src="img/logo.png" alt="Ícone do site" class="icon">
                 <h2>Radio canada Brasil</h2>
             </div>
+            <a href="#" class="cart-icon-link" onclick="abrirModalCarrinho()">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count-badge" class="cart-badge" data-count="<?= $contagem_carrinho ?>">
+                    <?= $contagem_carrinho ?>
+                </span>
+            </a>
         </header>
