@@ -4,13 +4,16 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="css/loginanimado.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="css/styleespecifico.css"> 
+    <link rel="stylesheet" href="css/styleespecifico.css">
 </head>
+
 <body class="dark-mode">
     <button class="theme-toggle" onclick="toggleTheme()">
         <i class="fas fa-moon" id="theme-icon"></i>
@@ -34,10 +37,12 @@ session_start();
             ?>
 
             <form action="processalogin.php" method="post">
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="senha" placeholder="Senha" required>
-                <br>
-                <input type="submit" value="Entrar">
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="senha" placeholder="Senha" required>
+                    <br>
+                    <?php include 'templates/loginanimado.php' ?>
+                </div>
             </form>
             <a href="criarconta.php" class="nav-link">Criar uma conta</a>
         </div>
@@ -58,4 +63,5 @@ session_start();
         }
     </script>
 </body>
+
 </html>

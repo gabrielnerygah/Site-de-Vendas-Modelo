@@ -1,28 +1,22 @@
 <?php
 // templates/footer.php
 ?>
-<div class="whatsap">
-    <a href="https://wa.me/5585981252196?text=">
-        <i class="fa fa-whatsapp"></i>
-    </a>
-</div>
 
 <footer>
-    <div class="footer-container">
-        <div class="footer-content">
-            <p>&copy; <?php echo date('Y'); ?> Alldux. Todos os direitos reservados.</p>
-            <p>&copy; Made by Gabriel de Morais Lacerda</p>
-            <p>TEL: +55 85 981258196</p>
-            <ul class="social-links">
-                <li><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-            </ul>
-        </div>
+    <p>&copy; <?php echo date('Y'); ?> Alldux. Todos os direitos reservados.</p>
+    <p>&copy; Made by Gabriel de Morais Lacerda</p>
+    <p>TEL: +55 85 981258196</p>
+    <div>
+        <p><a href="sobre">Sobre Nos</a></p>
     </div>
+    <ul class="social-links">
+        <li><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+        <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+    </ul>
 </footer>
-</div>
 
 <div id="modal-compra" class="modal-overlay" style="display: none;">
     <div class="modal-content">
@@ -68,8 +62,20 @@
     </div>
 </div>
 <div id="modal-pedidos" class="modal-overlay" style="display: none;">
+
+
     <div class="modal-content">
         <button class="modal-close" onclick="fecharModalPedidos()">&times;</button>
+        <div class="loop-wrapper">
+            <div class="mountain"></div>
+            <div class="hill"></div>
+            <div class="tree"></div>
+            <div class="tree"></div>
+            <div class="tree"></div>
+            <div class="rock"></div>
+            <div class="truck"></div>
+            <div class="wheels"></div>
+        </div>
         <h2>Meus Pedidos</h2>
         <div id="pedidos-lista">
         </div>
@@ -336,11 +342,49 @@
         }
     }
 
+    document.addEventListener('DOMContentLoaded', () => {
+        const parallaxBg = document.querySelector('.parallax-bg');
+        const products = document.querySelectorAll('.product');
+
+        // Opções para o IntersectionObserver (defini que 50% do elemento precisa estar visível)
+        const options = {
+            root: null, // O viewport
+            threshold: 0.5,
+        };
+
+        // Cria o observador
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Se o produto está visível
+                    const newBg = entry.target.getAttribute('data-background');
+                    parallaxBg.style.backgroundImage = newBg;
+                }
+            });
+        }, options);
+
+        // Observa cada um dos produtos
+        products.forEach(product => {
+            observer.observe(product);
+        });
+
+        // Função para definir a imagem inicial do fundo
+        function setInitialBackground() {
+            if (products.length > 0) {
+                const firstProductBg = products[0].getAttribute('data-background');
+                parallaxBg.style.backgroundImage = firstProductBg;
+            }
+        }
+
+        // Chama a função para garantir que o fundo comece com a imagem do primeiro produto
+        setInitialBackground();
+    });
+
 </script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="app/js/bootstrap.min.js"></script>
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 </body>
 
 </html>

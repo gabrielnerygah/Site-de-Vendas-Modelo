@@ -1,0 +1,20 @@
+.parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh; /* Altura total da viewport */
+    width: 100%;
+    position: fixed; /* Fixa o elemento para o efeito */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Envia para trás do conteúdo */
+    transition: background-image 0.5s ease-in-out; /* Adiciona uma transição suave */
+}
+
+/* Seu media query existente continua perfeito */
+@media only screen and (max-device-width: 1366px) {
+    .parallax-bg {
+        background-attachment: scroll;
+    }
+}

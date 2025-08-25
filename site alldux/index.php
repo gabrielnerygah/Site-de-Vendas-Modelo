@@ -67,5 +67,6 @@ switch ($pagina) {
 echo '</div>'; // Fecha o container principal
 
 require_once 'templates/footer.php';
+
 $conn->close();
 ?>

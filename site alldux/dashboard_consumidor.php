@@ -28,19 +28,8 @@ while ($row = $result->fetch_assoc()) {
     $produtos[] = $row;
 }
 
-
 // Libera memória
 $result->free();
-?>
-
-<?php foreach ($produtos as $produto): 
-    // Prepara variáveis para exibição segura
-    $produto_id = htmlspecialchars($produto['id']);
-    $produto_imagem = htmlspecialchars($produto['imagem']);
-    $produto_nome = htmlspecialchars($produto['nome']);
-    $produto_descricao = htmlspecialchars($produto['descricao']);
-    $produto_preco = number_format($produto['preco'], 2, ',', '.');
-    $promotor_nome = htmlspecialchars($produto['promotor_nome']);
 ?>
 
 <div class="container2">
@@ -49,25 +38,43 @@ $result->free();
         <div class="product-list">
             <?php foreach ($produtos as $produto): ?>
                 <div class="product">
-                    <a href="index.php?i=produto&id=<?php echo $produto_id; ?>">
-                        <img src="<?php echo $produto_imagem; ?>" alt="<?php echo $produto_nome; ?>">
-                        <div class="product-info-top">
-                            <strong><?php echo $produto_nome; ?></strong>
-                            <p><?php echo $produto_descricao; ?></p>
+                    <a href="index.php?i=produto&id=<?php echo htmlspecialchars($produto['id']); ?>">
+                        <img src="<?php echo htmlspecialchars($produto['imagem']); ?>" alt="<?php echo htmlspecialchars($produto['nome']); ?>">
+                        <div class="product-info">
+                            <strong><?php echo htmlspecialchars($produto['nome']); ?></strong>
+                            <p><?php echo htmlspecialchars($produto['descricao']); ?></p>
+                            <span>R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></span>
+                            <small>Vendido por: <?php echo htmlspecialchars($produto['promotor_nome']); ?></small>
                         </div>
                     </a>
-                    <div class="product-info-bottom">
-                        <span>R$ <?php echo $produto_preco; ?></span>
-                        <button class="btn-add-carrinho" onclick="adicionarAoCarrinho(<?php echo $produto_id; ?>)">
-                            <i class="fas fa-cart-plus"></i> Adicionar
-                        </button>
-                    </div>
                 </div>
             <?php endforeach; ?>
         </div>
 
-        <br>
-        <hr><br>
+        <br><hr><br>
+
+        <div class="container">
+            <div class="container2">
+                <h3>Lista em formato alternativo</h3>
+                <ul class="ul">
+                    <?php foreach ($produtos as $produto): ?>
+                        <li class="il">
+                            <a href="produto.php?id=<?php echo htmlspecialchars($produto['id']); ?>">
+                                <strong>
+                                    <img src="<?php echo htmlspecialchars($produto['imagem']); ?>" alt="<?php echo htmlspecialchars($produto['nome']); ?>"><br>
+                                    <div class="descricao">
+                                        <?php echo htmlspecialchars($produto['nome']); ?><br>
+                                        <?php echo htmlspecialchars($produto['descricao']); ?><br>
+                                        R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?><br>
+                                        Vendido por: <?php echo htmlspecialchars($produto['promotor_nome']); ?>
+                                    </div>
+                                </strong>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </div>
     <?php else: ?>
         <p>Nenhum produto disponível no momento.</p>
     <?php endif; ?>

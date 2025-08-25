@@ -43,7 +43,7 @@
                 <?php
                 // Lógica condicional para o botão de Login/Logout
                 if ($is_logged_in) {
-                    echo '<p><a href="logout.php" class="btn btn-danger">Logout</a></p>';
+                    echo '<a href="logout.php" class="btn btn-danger">Logout</a>';
                 } else {
                     echo '<a href="login.php" class="btn btn-primary">Login</a>';
                 }

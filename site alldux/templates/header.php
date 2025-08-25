@@ -11,6 +11,7 @@
     <link rel="sortcut icon" href="img/logo.png" type="image/x-icon">
     <title>Rádio Canadá Brasil</title>
     <link rel="stylesheet" href="css/stylecomum.css">
+    <link rel="stylesheet" href="css/parallax.css">
     <?php if ($pagina == 'dashboard_consumidor'): ?>
         <link rel="stylesheet" href="css/dashboard_consumidor.css">
     <?php elseif ($pagina == 'perfil'): ?>
@@ -22,10 +23,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
 </head>
 
-
-<body></body>
 
 
 <body>
@@ -34,7 +34,26 @@
         <header class="header">
             <div class="logo">
                 <img src="img/logo.png" alt="Ícone do site" class="icon">
-                <h2>Radio canada Brasil</h2>
+                <div class="concept concept-two">
+                    <div class="hover">
+                        <h1>F</h1>
+                    </div>
+                    <div class="hover">
+                        <h1>O</h1>
+                    </div>
+                    <div class="hover">
+                        <h1>R</h1>
+                    </div>
+                    <div class="hover">
+                        <h1>E</h1>
+                    </div>
+                    <div class="hover">
+                        <h1>S</h1>
+                    </div>
+                    <div class="hover">
+                        <h1>T</h1>
+                    </div>
+                </div>
             </div>
             <a href="#" class="cart-icon-link" onclick="abrirModalCarrinho()">
                 <i class="fas fa-shopping-cart"></i>
