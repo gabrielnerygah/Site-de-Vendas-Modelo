@@ -24,7 +24,6 @@
   opacity: 0;
   position: absolute;
   stroke: #777;
-  top: -9px;
   transition: opacity 1ms;
 }
 .fingerprint-active {

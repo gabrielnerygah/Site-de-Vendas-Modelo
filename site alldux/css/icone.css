@@ -1,0 +1,724 @@
+
+
+.containericon {
+  position: relative;
+  width: 40px; /* Era 80px */
+  height: 83.75px; /* Era 167.5px */
+  background: #FAE0C8;
+  border-radius: 25px; /* Era 50px */
+  overflow: hidden;
+}
+
+.mountain2 {
+  position: absolute;
+  top: 0;
+  opacity: 1;
+}
+.mountain2 .backdrop {
+  position: absolute;
+  top: 20px; /* Era 40px */
+  left: -45px; /* Era -90px */
+  width: 0;
+  height: 0;
+  border-left: 65px solid transparent; /* Era 130px */
+  border-right: 65px solid transparent; /* Era 130px */
+  border-bottom: 50px solid #F59452; /* Era 100px */
+}
+.mountain2 .zig {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform: rotate(217deg);
+}
+.mountain2 .zig.zag1 {
+  top: 20.75px; /* Era 41.5px */
+  left: 17.5px; /* Era 35px */
+  border-left: 2.5px solid transparent; /* Era 5px */
+  border-right: 2.5px solid transparent; /* Era 5px */
+  border-bottom: 7.5px solid #F47A45; /* Era 15px */
+}
+.mountain2 .zig.zag2 {
+  top: 23.5px; /* Era 47px */
+  left: 17.5px; /* Era 35px */
+  border-left: 5px solid transparent; /* Era 10px */
+  border-right: 5px solid transparent; /* Era 10px */
+  border-bottom: 15px solid #F47A45; /* Era 30px */
+}
+.mountain2 .zig.zag3 {
+  top: 28.75px; /* Era 57.5px */
+  left: 21px; /* Era 42px */
+  border-left: 7.5px solid transparent; /* Era 15px */
+  border-right: 7.5px solid transparent; /* Era 15px */
+  border-bottom: 20px solid #F47A45; /* Era 40px */
+}
+.mountain2 .zig.zag4 {
+  top: 34.25px; /* Era 68.5px */
+  left: 25px; /* Era 50px */
+  border-left: 10px solid transparent; /* Era 20px */
+  border-right: 10px solid transparent; /* Era 20px */
+  border-bottom: 25px solid #F47A45; /* Era 50px */
+}
+
+.tree2 {
+  opacity: 1;
+  position: absolute;
+}
+.tree2 > div {
+  position: absolute;
+}
+.tree2.tree2Front > div {
+  border-bottom-color: #2D1427;
+}
+.tree2.tree2Front.tree21 {
+  top: 50px; /* Era 100px */
+  left: 0px;
+}
+.tree2.tree2Front.tree22 {
+  top: 55px; /* Era 110px */
+  left: 13px; /* Era 26px */
+}
+.tree2.tree2Front.tree23 {
+  top: 59.5px; /* Era 119px */
+  left: 23.5px; /* Era 47px */
+}
+.tree2.tree2Front.tree24 {
+  top: 56px; /* Era 112px */
+  left: 34px; /* Era 68px */
+}
+.tree2.tree2Mid > div {
+  border-bottom-color: #5A0831;
+}
+.tree2.tree2Mid.tree21 {
+  top: 56.25px; /* Era 112.5px */
+  left: 6.75px; /* Era 13.5px */
+}
+.tree2.tree2Mid.tree22 {
+  top: 58px; /* Era 116px */
+  left: 16.75px; /* Era 33.5px */
+}
+.tree2.tree2Mid.tree23 {
+  top: 56.25px; /* Era 112.5px */
+  left: 21.5px; /* Era 43px */
+}
+.tree2.tree2Mid.tree24 {
+  top: 55.75px; /* Era 111.5px */
+  left: 26.5px; /* Era 53px */
+}
+.tree2.tree2Mid.tree25 {
+  top: 53.75px; /* Era 107.5px */
+  left: 31.75px; /* Era 63.5px */
+}
+.tree2.tree2Back > div {
+  border-bottom-color: #CD4D45;
+}
+.tree2.tree2Back.tree21 {
+  top: 50.5px; /* Era 101px */
+  left: -3px; /* Era -6px */
+}
+.tree2.tree2Back.tree22 {
+  top: 51px; /* Era 102px */
+  left: 4.25px; /* Era 8.5px */
+}
+.tree2.tree2Back.tree23 {
+  top: 53px; /* Era 106px */
+  left: 10px; /* Era 20px */
+}
+.tree2.tree2Back.tree24 {
+  top: 52.5px; /* Era 105px */
+  left: 15px; /* Era 30px */
+}
+.tree2.tree2Back.tree25 {
+  top: 52px; /* Era 104px */
+  left: 20px; /* Era 40px */
+}
+.tree2.tree2Back.tree26 {
+  top: 52.5px; /* Era 105px */
+  left: 24.5px; /* Era 49px */
+}
+.tree2.tree2Back.tree27 {
+  top: 51px; /* Era 102px */
+  left: 28.75px; /* Era 57.5px */
+}
+.tree2.tree2Back.tree28 {
+  top: 50.5px; /* Era 101px */
+  left: 32.5px; /* Era 65px */
+}
+.tree2 .top {
+  border-left: 4.25px solid transparent; /* Era 8.5px */
+  border-right: 4.25px solid transparent; /* Era 8.5px */
+  border-bottom: 11.25px solid #000; /* Era 22.5px */
+}
+.tree2 .mid {
+  top: 4px; /* Era 8px */
+  left: -1.75px; /* Era -3.5px */
+  border-left: 6px solid transparent; /* Era 12px */
+  border-right: 6px solid transparent; /* Era 12px */
+  border-bottom: 14.5px solid #000; /* Era 29px */
+}
+.tree2 .bot {
+  top: 7.5px; /* Era 15px */
+  left: -3px; /* Era -6px */
+  border-left: 7.25px solid transparent; /* Era 14.5px */
+  border-right: 7.25px solid transparent; /* Era 14.5px */
+  border-bottom: 17px solid #000; /* Era 34px */
+}
+.tree2 .base {
+  top: 11px; /* Era 22px */
+  left: -4px; /* Era -8px */
+  border-left: 8.25px solid transparent; /* Era 16.5px */
+  border-right: 8.25px solid transparent; /* Era 16.5px */
+  border-bottom: 18.75px solid blue; /* Era 37.5px */
+}
+
+.range {
+  position: absolute;
+  top: 0;
+  opacity: 1;
+}
+.range > div {
+  position: absolute;
+  background: #F46435;
+  width: 15px; /* Era 30px */
+  height: 12.5px; /* Era 25px */
+}
+.range .r1 {
+  top: 50px; /* Era 100px */
+  left: -5.5px; /* Era -11px */
+  width: 15px; /* Era 30px */
+  height: 12.5px; /* Era 25px */
+  transform: rotate(34deg);
+}
+.range .r2 {
+  top: 49.5px; /* Era 99px */
+  left: -5px; /* Era -10px */
+  transform: rotate(-8deg);
+}
+.range .r3 {
+  top: 51.25px; /* Era 102.5px */
+  left: 6px; /* Era 12px */
+  transform: rotate(25deg);
+}
+.range .r4 {
+  top: 51.25px; /* Era 102.5px */
+  left: 12.5px; /* Era 25px */
+  transform: rotate(-28deg);
+}
+.range .r5 {
+  top: 50px; /* Era 100px */
+  left: 22px; /* Era 44px */
+  transform: rotate(14deg);
+}
+.range .r6 {
+  top: 50px; /* Era 100px */
+  left: 25px; /* Era 50px */
+  transform: rotate(-38deg);
+}
+.range .r7 {
+  top: 49.75px; /* Era 99.5px */
+  left: 30.5px; /* Era 61px */
+  transform: rotate(30deg);
+}
+
+.tower {
+  position: absolute;
+  width: 18.5px; /* Era 37px */
+  margin-top: 27px; /* Era 54px */
+  margin-left: calc(50% - 9.25px); /* Era calc(50% - 18.5px) */
+  opacity: 1;
+}
+.tower .shadow {
+  position: absolute;
+  z-index: 9999;
+  top: 3px; /* Era 6px */
+  width: 100%;
+  height: 10.5px; /* Era 21px */
+  background: #000;
+  -webkit-clip-path: polygon(50% 0, 100% 40%, 100% 45%, 87% 45%, 87% 90%, 100% 90%, 100% 100%, 60% 100%, 60% 31%, 50% 0);
+  clip-path: polygon(50% 0, 100% 40%, 100% 45%, 87% 45%, 87% 90%, 100% 90%, 100% 100%, 60% 100%, 60% 31%, 50% 0);
+  opacity: 0.4;
+}
+.tower .flagPole {
+  width: 0.5px; /* Era 1px */
+  height: 3px; /* Era 6px */
+  background: #791819;
+  margin-left: 9px; /* Era 18px */
+}
+.tower .flagPole:after {
+  content: "";
+  width: 3px; /* Era 6px */
+  height: 1.5px; /* Era 3px */
+  background: #C63737;
+  position: absolute;
+  display: block;
+}
+.tower .roof1 {
+  border-left: 8.5px solid transparent; /* Era 17px */
+  border-right: 8.5px solid transparent; /* Era 17px */
+  border-bottom: 3.75px solid #76122C; /* Era 7.5px */
+}
+.tower .roof2 {
+  width: 100%;
+  height: 0.75px; /* Era 1.5px */
+  background: #C93D3D;
+}
+.tower .wall {
+  position: relative;
+  width: 76%;
+  height: 5.5px; /* Era 11px */
+  background: #821021;
+  margin-left: 12%;
+  padding-top: 1px; /* Era 2px */
+}
+.tower .wall .w1, .tower .wall .w2, .tower .wall .w3, .tower .wall .w4, .tower .wall .w5 {
+  position: absolute;
+  width: 2px; /* Era 4px */
+  height: 3.5px; /* Era 7px */
+  background: #F4633A;
+}
+.tower .wall .w1 {
+  left: 1px; /* Era 2px */
+}
+.tower .wall .w2 {
+  left: 3.5px; /* Era 7px */
+}
+.tower .wall .w3 {
+  left: 6px; /* Era 12px */
+}
+.tower .wall .w4 {
+  left: 8.5px; /* Era 17px */
+}
+.tower .wall .w5 {
+  left: 11px; /* Era 22px */
+}
+.tower .legs {
+  position: relative;
+}
+.tower .legs .left,
+.tower .legs .right {
+  position: absolute;
+  width: 1px; /* Era 2px */
+  height: 37.5px; /* Era 75px */
+  background: #370D09;
+}
+.tower .legs .left {
+  transform: rotate(3deg);
+  left: 3px; /* Era 6px */
+}
+.tower .legs .right {
+  transform: rotate(-3deg);
+  right: 3px; /* Era 6px */
+}
+.tower .legs .support1,
+.tower .legs .support2 {
+  position: absolute;
+}
+.tower .legs .support1 .criss,
+.tower .legs .support1 .cross,
+.tower .legs .support2 .criss,
+.tower .legs .support2 .cross {
+  position: absolute;
+  left: 8.75px; /* Era 17.5px */
+  width: 1px; /* Era 2px */
+  height: 16px; /* Era 32px */
+  background: #370D09;
+}
+.tower .legs .support1 .criss,
+.tower .legs .support2 .criss {
+  transform: rotate(45deg);
+}
+.tower .legs .support1 .cross,
+.tower .legs .support2 .cross {
+  transform: rotate(-45deg);
+}
+.tower .legs .support1 .flat,
+.tower .legs .support2 .flat {
+  position: absolute;
+  width: 11.5px; /* Era 23px */
+  height: 1px; /* Era 2px */
+  background: #370D09;
+  bottom: -13.75px; /* Era -27.5px */
+  left: 3.5px; /* Era 7px */
+}
+.tower .legs .support1 {
+  top: -3.5px; /* Era -7px */
+}
+.tower .legs .support2 {
+  top: 7px; /* Era 14px */
+}
+.tower .railing {
+  position: relative;
+  top: -4px; /* Era -8px */
+}
+.tower .railing .r1, .tower .railing .r2, .tower .railing .r3, .tower .railing .r4, .tower .railing .r5, .tower .railing .r6, .tower .railing .r7, .tower .railing .r8, .tower .railing .r9 {
+  position: absolute;
+  width: 0.5px; /* Era 1px */
+  height: 2.5px; /* Era 5px */
+  background: #370D09;
+}
+.tower .railing .r1 {
+  left: 1.25px; /* Era 2.5px */
+}
+.tower .railing .r2 {
+  left: 3px; /* Era 6px */
+}
+.tower .railing .r3 {
+  left: 5px; /* Era 10px */
+}
+.tower .railing .r4 {
+  left: 7px; /* Era 14px */
+}
+.tower .railing .r5 {
+  left: 9px; /* Era 18px */
+}
+.tower .railing .r6 {
+  left: 11px; /* Era 22px */
+}
+.tower .railing .r7 {
+  left: 13px; /* Era 26px */
+}
+.tower .railing .r8 {
+  left: 15px; /* Era 30px */
+}
+.tower .railing .r9 {
+  right: 1.25px; /* Era 2.5px */
+}
+.tower .railing .top,
+.tower .railing .bot1,
+.tower .railing .bot2 {
+  position: absolute;
+}
+.tower .railing .top {
+  width: 100%;
+  height: 0.5px; /* Era 1px */
+  background: #4B1205;
+}
+.tower .railing .bot1 {
+  width: 100%;
+  height: 1px; /* Era 2px */
+  top: 2.5px; /* Era 5px */
+  background: #C13C45;
+}
+.tower .railing .bot2 {
+  width: 80%;
+  height: 0.5px; /* Era 1px */
+  top: 3.5px; /* Era 7px */
+  left: 2px; /* Era 4px */
+  background: #4B1205;
+  opacity: 1;
+}
+
+.cloud {
+  position: absolute;
+  width: 40.5px; /* Era 81px */
+  height: 13.75px; /* Era 27.5px */
+  overflow: hidden;
+}
+.cloud.big {
+  top: 2.5px; /* Era 5px */
+  transform: scale(0.8);
+  -webkit-animation: bigCloud 4s linear;
+  animation: bigCloud 4s linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: forwards;
+  animation-direction: forwards;
+}
+.cloud.small {
+  top: 17.5px; /* Era 35px */
+  transform: scale(0.4);
+  -webkit-animation: smallCloud 4s linear;
+  animation: smallCloud 4s linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: forwards;
+  animation-direction: forwards;
+  -webkit-animation-delay: 3s;
+  animation-delay: 3s;
+}
+.cloud .circle {
+  position: absolute;
+  border-radius: 50%;
+  background: #FFF;
+}
+.cloud .c1 {
+  width: 8px; /* Era 16px */
+  height: 8px; /* Era 16px */
+  bottom: -3.75px; /* Era -7.5px */
+}
+.cloud .c2 {
+  width: 8.75px; /* Era 17.5px */
+  height: 8.75px; /* Era 17.5px */
+  left: 5px; /* Era 10px */
+  bottom: 0;
+}
+.cloud .c3 {
+  width: 6.25px; /* Era 12.5px */
+  height: 6.25px; /* Era 12.5px */
+  left: 12px; /* Era 24px */
+  bottom: 3.75px; /* Era 7.5px */
+}
+.cloud .c4 {
+  width: 8.75px; /* Era 17.5px */
+  height: 8.75px; /* Era 17.5px */
+  left: 16.25px; /* Era 32.5px */
+  bottom: 5px; /* Era 10px */
+}
+.cloud .c5 {
+  width: 6.25px; /* Era 12.5px */
+  height: 6.25px; /* Era 12.5px */
+  left: 23.5px; /* Era 47px */
+  bottom: 4px; /* Era 8px */
+}
+.cloud .c6 {
+  width: 7.5px; /* Era 15px */
+  height: 7.5px; /* Era 15px */
+  left: 27.5px; /* Era 55px */
+  bottom: -1.25px; /* Era -2.5px */
+}
+.cloud .c7 {
+  width: 7.5px; /* Era 15px */
+  height: 7.5px; /* Era 15px */
+  left: 33px; /* Era 66px */
+  bottom: -3.75px; /* Era -7.5px */
+}
+.cloud .c8 {
+  width: 22.5px; /* Era 45px */
+  height: 22.5px; /* Era 45px */
+  left: 7.5px; /* Era 15px */
+  bottom: -13.75px; /* Era -27.5px */
+  background: #FFF;
+}
+
+@-webkit-keyframes bigCloud {
+  0% {
+    transform: translateX(-50px) scale(0.8); /* Era -100px */
+  }
+  100% {
+    transform: translateX(50px) scale(0.8); /* Era 100px */
+  }
+}
+
+@keyframes bigCloud {
+  0% {
+    transform: translateX(-50px) scale(0.8); /* Era -100px */
+  }
+  100% {
+    transform: translateX(50px) scale(0.8); /* Era 100px */
+  }
+}
+@-webkit-keyframes smallCloud {
+  0% {
+    transform: translateX(-50px) scale(0.4); /* Era -100px */
+  }
+  100% {
+    transform: translateX(50px) scale(0.4); /* Era 100px */
+  }
+}
+@keyframes smallCloud {
+  0% {
+    transform: translateX(-50px) scale(0.4); /* Era -100px */
+  }
+  100% {
+    transform: translateX(50px) scale(0.4); /* Era 100px */
+  }
+}
+.birds {
+  position: absolute;
+  z-index: 9999;
+  width: 25px; /* Era 50px */
+  height: 25px; /* Era 50px */
+}
+.birds.front {
+  -webkit-animation: flyFront 4s linear;
+  animation: flyFront 4s linear;
+  -webkit-animation-direction: forwards;
+  animation-direction: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+  top: 50px; /* Era 100px */
+  left: 50px; /* Era 100px */
+}
+.birds.back {
+  -webkit-animation: flyBack 4s linear;
+  animation: flyBack 4s linear;
+  -webkit-animation-direction: forwards;
+  animation-direction: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+  top: 12.5px; /* Era 25px */
+  left: -106.25px; /* Era -212.5px */
+}
+.birds .bird {
+  position: absolute;
+  transform: scale(0.15);
+}
+.birds .b1 .wing1,
+.birds .b2 .wing1,
+.birds .b3 .wing1,
+.birds .b4 .wing1,
+.birds .b5 .wing1,
+.birds .b6 .wing1,
+.birds .b7 .wing1,
+.birds .b8 .wing1,
+.birds .b9 .wing1,
+.birds .b10 .wing1,
+.birds .b11 .wing1,
+.birds .b12 .wing1 {
+  -webkit-animation: flap 0.5s ease-in-out;
+  animation: flap 0.5s ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+  transform-origin: 0 0;
+}
+
+.birds .b1 .wing1,
+.birds .b2 .wing1,
+.birds .b4 .wing1,
+.birds .b6 .wing1,
+.birds .b7 .wing1,
+.birds .b8 .wing1,
+.birds .b12 .wing1 {
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s;
+}
+.birds .b3 .wing1,
+.birds .b5 .wing1,
+.birds .b9 .wing1,
+.birds .b10 .wing1,
+.birds .b11 .wing1 {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+}
+
+.birds .b1 {
+  top: -7.5px; /* Era -15px */
+}
+.birds .b2 {
+  top: -5px; /* Era -10px */
+  left: -3.75px; /* Era -7.5px */
+}
+.birds .b3 {
+  left: 2.5px; /* Era 5px */
+}
+.birds .b4 {
+  top: 3.75px; /* Era 7.5px */
+  left: 5px; /* Era 10px */
+}
+.birds .b5 {
+  top: 7.5px; /* Era 15px */
+  left: -1.25px; /* Era -2.5px */
+}
+.birds .b6 {
+  top: 11.25px; /* Era 22.5px */
+  left: 1.25px; /* Era 2.5px */
+}
+.birds .b7 {
+  top: -1.25px; /* Era -2.5px */
+  left: -8.75px; /* Era -17.5px */
+}
+.birds .b8 {
+  top: 2.5px; /* Era 5px */
+  left: -6.25px; /* Era -12.5px */
+}
+.birds .b9 {
+  top: 6.25px; /* Era 12.5px */
+  left: -12.5px; /* Era -25px */
+}
+.birds .b10 {
+  top: 10px; /* Era 20px */
+  left: -10px; /* Era -20px */
+}
+.birds .b11 {
+  top: -2.5px; /* Era -5px */
+  left: -18.75px; /* Era -37.5px */
+}
+.birds .b12 {
+  top: 1.25px; /* Era 2.5px */
+  left: -16.25px; /* Era -32.5px */
+}
+
+.body {
+  -webkit-clip-path: polygon(0 100%, 20% 20%, 40% 0, 100% 100%, 20% 80%);
+  clip-path: polygon(0 100%, 20% 20%, 40% 0, 100% 100%, 20% 80%);
+  background: #000;
+  width: 37.5px; /* Era 75px */
+  height: 10px; /* Era 20px */
+}
+
+.wing1 {
+  position: relative;
+  left: 10px; /* Era 20px */
+  top: -5px; /* Era -10px */
+  width: 10px; /* Era 20px */
+  height: 12.5px; /* Era 25px */
+  background: #000;
+  transform: skew(10deg);
+}
+.wing1 .wing2 {
+  position: absolute;
+  bottom: -6.25px; /* Era -12.5px */
+  left: 3.25px; /* Era 6.5px */
+  transform: rotate(-5deg);
+}
+.wing1 .wing3 {
+  width: 10px; /* Era 20px */
+  height: 7.5px; /* Era 15px */
+  background: #000;
+  transform: skew(40deg);
+}
+
+@-webkit-keyframes flap {
+  0% {
+    transform: skew(10deg) rotateX(50deg);
+  }
+  100% {
+    transform: skew(15deg) rotateX(120deg);
+  }
+}
+
+@keyframes flap {
+  0% {
+    transform: skew(10deg) rotateX(50deg);
+  }
+  100% {
+    transform: skew(15deg) rotateX(120deg);
+  }
+}
+@-webkit-keyframes flyFront {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(15deg);
+  }
+  100% {
+    transform: translate3d(-150px, -37.5px, 0) rotate(15deg); /* Era -300px, -75px */
+  }
+}
+@keyframes flyFront {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(15deg);
+  }
+  100% {
+    transform: translate3d(-150px, -37.5px, 0) rotate(15deg); /* Era -300px, -75px */
+  }
+}
+@-webkit-keyframes flyBack {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.6) scaleX(-1) rotate(-15deg);
+  }
+  100% {
+    transform: translate3d(150px, -12.5px, 0) scale(0.6) scaleX(-1) rotate(15deg); /* Era 300px, -25px */
+  }
+}
+@keyframes flyBack {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.6) scaleX(-1) rotate(-15deg);
+  }
+  100% {
+    transform: translate3d(150px, -12.5px, 0) scale(0.6) scaleX(-1) rotate(15deg); /* Era 300px, -25px */
+  }
+}

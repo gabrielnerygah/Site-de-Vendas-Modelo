@@ -32,20 +32,24 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    padding: 17px;
     background-color: #333;
     color: #fff;
     margin: 10px;
 }
 
 .header .logo {
+    padding: auto;
     display: flex;
     align-items: center;
 }
 
-.header .logo img.icon {
-    width: 40px;
-    height: 40px;
+.logo .icon {
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    width: 40px;    
+    height: 100px;
     margin-right: 10px;
 }
 
@@ -1017,6 +1021,9 @@ font-family: "Comfortaa", sans-serif;
 .truck  { animation: truck 4s   0.080s ease infinite; }
 .wheels  { animation: truck 4s   0.001s ease infinite; }
 .truck:before { animation: wind 1s   0.000s ease infinite; }
+
+
+
 
 
 @keyframes tree {

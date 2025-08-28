@@ -33,7 +33,9 @@
     <div class="tudo">
         <header class="header">
             <div class="logo">
-                <img src="img/logo.png" alt="Ícone do site" class="icon">
+                <div class="icon">
+                    <?php include 'templates/icone.php'; ?>
+                </div>
                 <div class="concept concept-two">
                     <div class="hover">
                         <h1>F</h1>

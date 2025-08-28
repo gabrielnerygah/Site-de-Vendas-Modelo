@@ -62,8 +62,6 @@
     </div>
 </div>
 <div id="modal-pedidos" class="modal-overlay" style="display: none;">
-
-
     <div class="modal-content">
         <button class="modal-close" onclick="fecharModalPedidos()">&times;</button>
         <div class="loop-wrapper">
