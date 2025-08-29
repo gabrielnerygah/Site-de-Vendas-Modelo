@@ -1,14 +1,13 @@
-
-
 .containericon {
+  margin-top:10px;
   position: relative;
   width: 40px; /* Era 80px */
   height: 83.75px; /* Era 167.5px */
   background: #FAE0C8;
   border-radius: 25px; /* Era 50px */
   overflow: hidden;
+  box-shadow: #003000 1.5px 2px 4px; /* Era 5px */ 
 }
-
 .mountain2 {
   position: absolute;
   top: 0;
@@ -58,7 +57,6 @@
   border-right: 10px solid transparent; /* Era 20px */
   border-bottom: 25px solid #F47A45; /* Era 50px */
 }
-
 .tree2 {
   opacity: 1;
   position: absolute;
@@ -228,7 +226,7 @@
 }
 .tower .shadow {
   position: absolute;
-  z-index: 9999;
+  z-index: 1000;
   top: 3px; /* Era 6px */
   width: 100%;
   height: 10.5px; /* Era 21px */
@@ -524,7 +522,7 @@
 }
 .birds {
   position: absolute;
-  z-index: 9999;
+  z-index: 1000;
   width: 25px; /* Era 50px */
   height: 25px; /* Era 50px */
 }

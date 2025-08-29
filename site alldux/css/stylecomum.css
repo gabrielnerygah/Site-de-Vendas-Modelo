@@ -245,9 +245,6 @@ footer {
     font-size: 4px;
     background-color: #e91414;
 }
-.auth-button a:hover {
-    background-color: #a30a0a;
-}
 
 .botao-login {
     max-width: 60px;
